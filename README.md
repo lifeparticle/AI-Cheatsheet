@@ -14,7 +14,7 @@
 2. https://www.litellm.ai
 3. https://konghq.com
 4. https://portkey.ai
-5.  https://aws.amazon.com/bedrock
+5. https://aws.amazon.com/bedrock
 6. https://cloud.google.com/generative-ai-studio
 
 # Course
@@ -24,6 +24,7 @@
 3. [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)
 4. [Training for AI engineers](https://learn.microsoft.com/en-us/training/career-paths/ai-engineer)
 5. [The AI Engineer Path](https://scrimba.com/the-ai-engineer-path-c02v)
+6. [Databricks](https://www.databricks.com/training/catalog?search=ai&costs=free)
 
 # Book
 

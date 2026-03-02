@@ -29,7 +29,11 @@
 # Book
 
 1. https://github.com/chiphuyen/aie-book
-2. [HBR's 10 Must Reads on AI](https://store.hbr.org/product/hbr-s-10-must-reads-on-ai-with-bonus-article-how-to-win-with-machine-learning-by-ajay-agrawal-joshua-gans-and-avi-goldfarb/10666?srsltid=AfmBOoobOoS7EnF0zyGSOZrQGW1rtTAWDgbGlGZR9UvT6BgA66yWvkH_)
+2. [HBR's 10 Must Reads on AI](https://store.hbr.org/product/hbr-s-10-must-reads-on-ai-with-bonus-article-how-to-win-with-machine-learning-by-ajay-agrawal-joshua-gans-and-avi-goldfarb/10666?srsltid=AfmBOoobOoS7EnF0zyGSOZrQGW1rtTAWDgbGlGZR9UvT6BgA66yWvkH)
+
+# Paper
+
+1. [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954)
 
 # Protocol
 

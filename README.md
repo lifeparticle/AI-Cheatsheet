@@ -47,3 +47,5 @@
 # Tools
 
 1. https://stitch.withgoogle.com
+2. https://github.com/agent0ai/agent-zero
+3. https://www.remotion.dev/prompts

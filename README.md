@@ -45,8 +45,14 @@
 5. [Agora Protocol](https://agoraprotocol.org/)
 6. [LMOS Protocol](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)
 
+# Tool calling
+
+1. https://www.anthropic.com/engineering/advanced-tool-use
+
 # Tools
 
 1. https://stitch.withgoogle.com
 2. https://github.com/agent0ai/agent-zero
 3. https://www.remotion.dev/prompts
+
+

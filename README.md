@@ -48,6 +48,7 @@
 # Tool calling
 
 1. https://www.anthropic.com/engineering/advanced-tool-use
+2. https://www.pencil.dev
 
 # Tools
 

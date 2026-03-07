@@ -35,6 +35,7 @@
 
 1. [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954)
 2. [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941)
+3. [Agents of Chaos](https://arxiv.org/abs/2602.20021)
 
 # Protocol
 
@@ -49,6 +50,7 @@
 
 1. https://www.anthropic.com/engineering/advanced-tool-use
 2. https://www.pencil.dev
+3. https://quiver.ai/
 
 # Tools
 

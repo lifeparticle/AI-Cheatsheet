@@ -36,6 +36,9 @@
 1. [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954)
 2. [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941)
 3. [Agents of Chaos](https://arxiv.org/abs/2602.20021)
+4. [Does Prompt Formatting Have Any Impact on LLM Performance?](https://arxiv.org/abs/2411.10541)
+5. [Helpful Agent Meets Deceptive Judge: Understanding Vulnerabilities in Agentic Workflows](https://arxiv.org/abs/2506.03332)
+6. [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
 
 # Protocol
 
@@ -49,13 +52,11 @@
 # Tool calling
 
 1. https://www.anthropic.com/engineering/advanced-tool-use
-2. https://www.pencil.dev
-3. https://quiver.ai/
 
 # Tools
 
 1. https://stitch.withgoogle.com
 2. https://github.com/agent0ai/agent-zero
 3. https://www.remotion.dev/prompts
-
-
+4. https://www.pencil.dev
+5. https://quiver.ai

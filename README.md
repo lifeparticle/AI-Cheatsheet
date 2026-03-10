@@ -51,6 +51,12 @@
 5. [Agora Protocol](https://agoraprotocol.org/)
 6. [LMOS Protocol](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)
 
+# Agent
+
+1. [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
+2. [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+3. [How to Build an Agent](https://blog.langchain.com/how-to-build-an-agent/)
+
 # Tool calling
 
 1. https://www.anthropic.com/engineering/advanced-tool-use

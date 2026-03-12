@@ -68,3 +68,7 @@
 3. https://www.remotion.dev/prompts
 4. https://www.pencil.dev
 5. https://quiver.ai
+
+# Others
+
+1. https://www.moltbook.com

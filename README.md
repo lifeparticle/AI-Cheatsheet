@@ -25,11 +25,16 @@
 4. [Training for AI engineers](https://learn.microsoft.com/en-us/training/career-paths/ai-engineer)
 5. [The AI Engineer Path](https://scrimba.com/the-ai-engineer-path-c02v)
 6. [Databricks](https://www.databricks.com/training/catalog?search=ai&costs=free)
+7. [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
 
 # Book
 
 1. https://github.com/chiphuyen/aie-book
 2. [HBR's 10 Must Reads on AI](https://store.hbr.org/product/hbr-s-10-must-reads-on-ai-with-bonus-article-how-to-win-with-machine-learning-by-ajay-agrawal-joshua-gans-and-avi-goldfarb/10666?srsltid=AfmBOoobOoS7EnF0zyGSOZrQGW1rtTAWDgbGlGZR9UvT6BgA66yWvkH)
+
+# Blog
+
+1. [Introduction to Large Language Models: Everything You Need to Know for 2025](https://www.lakera.ai/blog/large-language-models-guide)
 
 # Paper
 

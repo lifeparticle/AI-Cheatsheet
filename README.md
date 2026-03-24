@@ -73,6 +73,11 @@
 3. https://www.remotion.dev/prompts
 4. https://www.pencil.dev
 5. https://quiver.ai
+6. https://anythingllm.com
+7. https://ollama.com
+8. https://openwebui.com
+9. https://app.getrecall.ai
+10. https://github.com/Fosowl/agenticSeek
 
 # Others
 

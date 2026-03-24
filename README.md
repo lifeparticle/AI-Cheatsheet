@@ -66,6 +66,13 @@
 
 1. https://www.anthropic.com/engineering/advanced-tool-use
 
+# Chunks
+
+- https://stackoverflow.com/questions/17386028/how-to-calculate-the-weighted-center-of-a-2d-numpy-array
+- https://stackoverflow.com/questions/18714587/how-to-calculate-centroid-in-python
+- https://scikit-learn.org/stable/modules/unsupervised_reduction.html
+
+
 # Tools
 
 1. https://stitch.withgoogle.com

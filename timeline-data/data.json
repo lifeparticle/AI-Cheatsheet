@@ -1,0 +1,20 @@
+{
+	"1950": {
+		"event": "Turing publishes \"Computing Machinery and Intelligence\"",
+		"description": "The British mathematician Alan Turing’s article appears in the journal Mind. It takes up whether machines can think, but sidesteps a tidy definition of thought by proposing an operational check: a machine passes if its answers in dialogue are indistinguishable from a person’s—the setup later nicknamed the Turing test after Turing’s “imitation game.” The piece is widely read as an early blueprint for how researchers might probe or compare machine and human behavior without settling metaphysics first.",
+		"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+		"date": "1950"
+	},
+	"1955": {
+		"event": "The label \"artificial intelligence\" enters the literature",
+		"description": "John McCarthy (Dartmouth College), Marvin Minsky (Harvard University), Nathaniel Rochester (IBM), and Claude Shannon (Bell Telephone Laboratories) submit a grant proposal for a summer research program at Dartmouth. The document uses the phrase \"artificial intelligence\" and frames a collaborative push to see whether aspects of learning and reasoning could be realized in machines.",
+		"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+		"date": "1955"
+	},
+	"2026": {
+		"event": "OpenAI Shuts Down Sora Video Generation App",
+		"description": "OpenAI announced it is shutting down its Sora AI video generation app, pivoting away from consumer video tools toward business-focused products. The shutdown also led Disney to drop a planned $1 billion investment in the company. This marks a significant retreat from one of the most hyped consumer AI creative tools and signals a broader industry shift toward enterprise AI applications.",
+		"source": "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/",
+		"date": "2026-03-25"
+	}
+}

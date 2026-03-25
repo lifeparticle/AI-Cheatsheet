@@ -1,34 +1,80 @@
 {
-  "1950": [
-    {
-      "event": "Turing publishes \"Computing Machinery and Intelligence\"",
-      "description": "The British mathematician Alan Turing’s article appears in the journal Mind. It takes up whether machines can think, but sidesteps a tidy definition of thought by proposing an operational check: a machine passes if its answers in dialogue are indistinguishable from a person’s—the setup later nicknamed the Turing test after Turing’s “imitation game.” The piece is widely read as an early blueprint for how researchers might probe or compare machine and human behavior without settling metaphysics first.",
-      "source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
-      "date": "1950"
-    }
-  ],
-  "1955": [
-    {
-      "event": "The label \"artificial intelligence\" enters the literature",
-      "description": "John McCarthy (Dartmouth College), Marvin Minsky (Harvard University), Nathaniel Rochester (IBM), and Claude Shannon (Bell Telephone Laboratories) submit a grant proposal for a summer research program at Dartmouth. The document uses the phrase \"artificial intelligence\" and frames a collaborative push to see whether aspects of learning and reasoning could be realized in machines.",
-      "source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
-      "date": "1955"
-    }
-  ],
-  "2025": [
-    {
-      "event": "Karpathy coins \"vibe coding\" for LLM-assisted development",
-      "description": "Andrej Karpathy, AI researcher and founding member of OpenAI, coined the term \"vibe coding\" in early 2025. It describes a software development approach where programmers use natural language to guide coding assistants, prioritizing intent and iteration over manually writing and reviewing every line.",
-      "source": "https://x.com/karpathy/status/1886192184808149383",
-      "date": "2025-02-03"
-    }
-  ],
-  "2026": [
-    {
-      "event": "OpenAI Discontinues Sora Video Generation App",
-      "description": "OpenAI announced it is shutting down its Sora AI video generation app and API, marking a major reversal for one of the most hyped AI product launches. The discontinuation also led Disney to pull out of a $1 billion investment deal tied to the platform, signaling significant commercial and strategic fallout for OpenAI's video generation ambitions.",
-      "source": "https://www.bloomberg.com/news/articles/2026-03-24/openai-plans-to-discontinue-support-for-sora-ai-video-generator",
-      "date": "2026-03-24"
-    }
-  ]
+	"1950": [
+		{
+			"event": "Turing publishes \"Computing Machinery and Intelligence\"",
+			"description": "The British mathematician Alan Turing’s article appears in the journal Mind. It takes up whether machines can think, but sidesteps a tidy definition of thought by proposing an operational check: a machine passes if its answers in dialogue are indistinguishable from a person’s—the setup later nicknamed the Turing test after Turing’s “imitation game.” The piece is widely read as an early blueprint for how researchers might probe or compare machine and human behavior without settling metaphysics first.",
+			"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+			"date": "1950-10-01"
+		}
+	],
+	"1955": [
+		{
+			"event": "The label \"artificial intelligence\" enters the literature",
+			"description": "John McCarthy (Dartmouth College), Marvin Minsky (Harvard University), Nathaniel Rochester (IBM), and Claude Shannon (Bell Telephone Laboratories) submit a grant proposal for a summer research program at Dartmouth. The document uses the phrase \"artificial intelligence\" and frames a collaborative push to see whether aspects of learning and reasoning could be realized in machines.",
+			"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+			"date": "1955-08-31"
+		}
+	],
+	"1997": [
+		{
+			"event": "IBM's Deep Blue defeats world chess champion Garry Kasparov",
+			"description": "In a six-game match held in New York in May 1997, IBM's Deep Blue supercomputer beat reigning world chess champion Garry Kasparov 3.5–2.5 — the first time a computer had defeated a sitting world champion under standard tournament conditions. Deep Blue relied on custom hardware that let it evaluate up to 200 million positions per second, blending exhaustive search with chess knowledge hand-encoded by grandmasters. The result sent shockwaves through both the AI research community and the broader public, establishing that machines could outperform the best human minds in a game long held as a symbol of human strategic intelligence.",
+			"source": "https://www.ibm.com/history/deep-blue",
+			"date": "1997-05-11"
+		}
+	],
+	"2011": [
+		{
+			"event": "IBM Watson defeats Brad Rutter and Ken Jennings on Jeopardy!",
+			"description": "IBM Watson, a question-answering system built by IBM Research, defeated Jeopardy! all-time champions Brad Rutter and Ken Jennings in a televised two-game match in February 2011. Watson processed each clue entirely in natural language, generating hundreds of candidate answers and ranking them by confidence score — all within three seconds without any internet access. The victory demonstrated that a machine could handle the ambiguity, wordplay, and broad world knowledge demanded by Jeopardy!, marking a major milestone in natural language processing and AI's ability to compete with human experts outside of narrowly defined domains.",
+			"source": "https://www.ibm.com/watson",
+			"date": "2011-02-16"
+		},
+		{
+			"event": "Apple launches Siri on iPhone 4S",
+			"description": "Apple introduced Siri as the standout feature of the iPhone 4S in October 2011, bringing a voice-driven assistant to a mass consumer audience for the first time. Built on research originally funded by DARPA at SRI International and acquired by Apple in 2010, Siri could field natural language requests across calls, messages, reminders, and web searches while maintaining context across follow-up questions. Its arrival signaled a turning point in how people interacted with devices — shifting from tapping menus to simply speaking an intent.",
+			"source": "https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/",
+			"date": "2011-10-04"
+		}
+	],
+	"2012": [
+		{
+			"event": "Google launches Google Now",
+			"description": "Unveiled at Google I/O in June 2012 and shipped with Android 4.1 Jelly Bean, Google Now took a fundamentally different approach to AI assistance than its predecessors. Rather than waiting for a user to ask a question, it proactively pushed relevant information — weather, commute times, flight status, sports scores — as contextual cards derived from a user's search history and location. Powered by neural-network voice search, it introduced the concept of ambient, anticipatory AI and earned Popular Science's Innovation of the Year for 2012.",
+			"source": "https://en.wikipedia.org/wiki/Google_Now",
+			"date": "2012-06-27"
+		}
+	],
+	"2014": [
+		{
+			"event": "Microsoft launches Cortana on Windows Phone",
+			"description": "Microsoft debuted Cortana in beta at its Build conference in April 2014, positioning it as the centerpiece of Windows Phone 8.1. Named after the iconic AI character from the Halo video game series, Cortana combined natural language voice commands with a persistent \"Notebook\" — a user-editable profile of interests and preferences that shaped its responses over time. When it expanded to Windows 10 desktops in 2015, Cortana became the first major AI assistant to operate at scale across both mobile and PC, embedding conversational AI directly into an operating system used by hundreds of millions.",
+			"source": "https://en.wikipedia.org/wiki/Cortana_(virtual_assistant)",
+			"date": "2014-04-02"
+		}
+	],
+	"2020": [
+		{
+			"event": "OpenAI introduces GPT-3",
+			"description": "OpenAI introduces GPT-3, a language model with 175 billion parameters, making it one of the largest and most sophisticated AI models to date. GPT-3 demonstrates the ability to generate human-like text, engage in conversations, write code, translate languages, and generate creative writing based on natural language prompts. As one of the earliest examples of a large language model (LLM), GPT-3’s massive size and scale enabled it to perform a wide variety of language tasks with little to no task-specific training. This example demonstrated the potential of AI to understand and produce highly coherent language.",
+			"source": "https://openai.com/index/language-unsupervised/",
+			"date": "2020-06-11"
+		}
+	],
+	"2025": [
+		{
+			"event": "Karpathy coins \"vibe coding\" for LLM-assisted development",
+			"description": "Andrej Karpathy, AI researcher and founding member of OpenAI, coined the term \"vibe coding\" in early 2025. It describes a software development approach where programmers use natural language to guide coding assistants, prioritizing intent and iteration over manually writing and reviewing every line.",
+			"source": "https://x.com/karpathy/status/1886192184808149383",
+			"date": "2025-02-03"
+		}
+	],
+	"2026": [
+		{
+			"event": "OpenAI Discontinues Sora Video Generation App",
+			"description": "OpenAI announced it is shutting down its Sora AI video generation app and API, marking a major reversal for one of the most hyped AI product launches. The discontinuation also led Disney to pull out of a $1 billion investment deal tied to the platform, signaling significant commercial and strategic fallout for OpenAI's video generation ambitions.",
+			"source": "https://www.bloomberg.com/news/articles/2026-03-24/openai-plans-to-discontinue-support-for-sora-ai-video-generator",
+			"date": "2026-03-24"
+		}
+	]
 }

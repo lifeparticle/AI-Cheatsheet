@@ -55,6 +55,7 @@ function TimelineRow({
 	const monthName = getMonthName(item.date);
 	const isPrimarySide = chronologicalIndex % 2 === 0;
 	const tag = TAGS[chronologicalIndex % TAGS.length];
+	const badgeLabel = monthName ?? tag;
 	const linkLabel = LINK_LABELS[chronologicalIndex % LINK_LABELS.length];
 	const linkIcon = LINK_ICONS[chronologicalIndex % LINK_ICONS.length];
 
@@ -91,7 +92,7 @@ function TimelineRow({
 
 	return (
 		<div
-			className={`mb-10 md:mb-28 lg:mb-32 relative flex ${rowLayout} items-start gap-3 md:gap-0 ${mobileSpineGutter} min-w-0`}
+			className={`mb-10 md:mb-20 lg:mb-24 relative flex ${rowLayout} items-start gap-3 md:gap-0 ${mobileSpineGutter} min-w-0`}
 		>
 			<div
 				className={`absolute left-4 z-20 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-2 h-2 ${dotBg} rounded-full ${dotShadow} top-2 ring-[3px] ring-surface`}
@@ -104,11 +105,11 @@ function TimelineRow({
 				>
 					{year}
 				</div>
-				<div className="hidden md:block">
+				<div>
 					<span
 						className={`inline-block py-1 px-3 border ${borderAccent} ${tagText} text-[10px] font-body uppercase tracking-widest mb-4`}
 					>
-						{tag}
+						{badgeLabel}
 					</span>
 				</div>
 			</div>
@@ -119,11 +120,7 @@ function TimelineRow({
 					>
 						{item.event}
 					</h2>
-					{monthName ? (
-						<p className="text-on-surface-variant font-body text-[10px] uppercase tracking-widest opacity-70 mb-4 md:mb-5">
-							{monthName}
-						</p>
-					) : null}
+
 					<p
 						className={`text-on-surface-variant font-body text-[11px] md:text-xs lg:text-[13px] leading-loose md:leading-loose lg:leading-[1.75] mb-6 md:mb-7 projected-text max-w-full md:max-w-lg break-words [overflow-wrap:anywhere] ${isPrimarySide ? "" : "md:ml-auto"}`}
 					>
@@ -179,10 +176,28 @@ export default function App() {
 		years.length >= 2
 			? `${Math.min(...years)}–${Math.max(...years)}`
 			: (years[0]?.toString() ?? "—");
+	let statusNode: React.ReactNode = (
+		<span className="sr-only">Timeline loaded.</span>
+	);
+	if (isLoading) {
+		statusNode = (
+			<p className="text-center text-on-surface-variant/70 font-body text-xs uppercase tracking-[0.35em] inline-flex items-center bg-surface/85 backdrop-blur-sm px-4 py-1 border border-on-surface/10 shadow-[0_0_24px_rgba(0,0,0,0.25)]">
+				Syncing timeline...
+			</p>
+		);
+	} else if (isError) {
+		const errorMessage =
+			error instanceof Error ? error.message : "Showing local data.";
+		statusNode = (
+			<p className="text-center text-tertiary font-body text-xs uppercase tracking-[0.35em] inline-flex items-center bg-surface/85 backdrop-blur-sm px-4 py-1 border border-tertiary/20 shadow-[0_0_24px_rgba(0,0,0,0.25)]">
+				Failed to load remote timeline. {errorMessage}
+			</p>
+		);
+	}
 
 	return (
 		<>
-			<main className="pt-16 md:pt-24 lg:pt-28 pb-32 md:pb-44 lg:pb-52 min-h-screen relative bg-surface text-on-surface selection:bg-primary/30 overflow-x-hidden">
+			<main className="pt-16 md:pt-16 lg:pt-16 pb-32 md:pb-44 lg:pb-52 min-h-screen relative bg-surface text-on-surface selection:bg-primary/30 overflow-x-hidden">
 				<div
 					className="fixed inset-0 digital-grid pointer-events-none"
 					aria-hidden
@@ -201,7 +216,7 @@ export default function App() {
 				/>
 
 				<div className="max-w-5xl mx-auto w-full min-w-0 px-6 md:px-8 lg:px-10 relative z-10">
-					<header className="mb-16 md:mb-28 lg:mb-32 text-center flex flex-col items-center">
+					<header className="mb-16 md:mb-10 lg:mb-10 text-center flex flex-col items-center">
 						<span className="text-tertiary font-body text-xs font-bold tracking-[0.5em] uppercase mb-6 md:mb-6 opacity-60">
 							System.Genesis_Logs
 						</span>
@@ -219,18 +234,13 @@ export default function App() {
 					<div className="relative">
 						<div className="absolute left-4 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-primary via-primary/20 to-transparent md:left-1/2 md:-translate-x-1/2 central-line-glow" />
 
-						{isLoading ? (
-							<p className="text-center text-on-surface-variant/70 font-body text-xs uppercase tracking-[0.35em] mb-8">
-								Syncing timeline...
-							</p>
-						) : null}
-
-						{isError ? (
-							<p className="text-center text-tertiary font-body text-xs uppercase tracking-[0.35em] mb-8">
-								Failed to load remote timeline.{" "}
-								{error instanceof Error ? error.message : "Showing local data."}
-							</p>
-						) : null}
+						<div
+							className="mb-8 h-6 flex items-center justify-center relative z-30"
+							aria-live="polite"
+							aria-atomic="true"
+						>
+							{statusNode}
+						</div>
 
 						{entries.map(([year, item]) => (
 							<TimelineRow

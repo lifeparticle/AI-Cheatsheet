@@ -45,20 +45,14 @@ jobs:
             exit 0
           fi
 
-          BRANCH="update-timeline-data-$(date +'%Y-%m-%d')"
+          # Use a unique branch per workflow run to avoid conflicts on re-runs.
+          BRANCH="update-timeline-data-$(date +'%Y-%m-%d')-${{ github.run_id }}"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
           git add "timeline-data/data.json" "timeline/public/data.json"
           git commit -m "Update timeline data"
-
-          # If the branch already exists on origin (re-run, manual push, etc.),
-          # integrate remote commits so the push remains fast-forward.
-          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
-            git fetch origin "$BRANCH"
-            git pull --rebase origin "$BRANCH"
-          fi
 
           git push -u origin "$BRANCH"
 

@@ -21,24 +21,15 @@ client = anthropic.Anthropic(api_key=api_key)
 current_date = datetime.now().strftime("%Y-%m-%d")
 current_year = datetime.now().strftime("%Y")
 
-# NOTE: The "cost" numbers printed below are estimates based on these constants.
-# Keep them in sync with whatever model you actually run in prod.
-INPUT_COST_PER_M = float(os.getenv("ANTHROPIC_INPUT_COST_PER_M", "5.00"))
-OUTPUT_COST_PER_M = float(os.getenv("ANTHROPIC_OUTPUT_COST_PER_M", "25.00"))
+# Opus 4.6 pricing (per million tokens)
+INPUT_COST_PER_M = 5.00
+OUTPUT_COST_PER_M = 25.00
 
 def calc_cost(input_tokens, output_tokens):
     return (input_tokens / 1_000_000) * INPUT_COST_PER_M + \
            (output_tokens / 1_000_000) * OUTPUT_COST_PER_M
 
 total_cost = 0.0
-
-SEARCH_MODEL = os.getenv("TIMELINE_SEARCH_MODEL", "claude-opus-4-6")
-FILTER_MODEL = os.getenv("TIMELINE_FILTER_MODEL", "claude-opus-4-6")
-
-# Web-search tool calls can explode token usage. Default to a single tool call.
-SEARCH_MAX_USES = int(os.getenv("TIMELINE_SEARCH_MAX_USES", "1"))
-SEARCH_MAX_TOKENS = int(os.getenv("TIMELINE_SEARCH_MAX_TOKENS", "900"))
-FILTER_MAX_TOKENS = int(os.getenv("TIMELINE_FILTER_MAX_TOKENS", "700"))
 
 def _safe_request_id(exc: Exception) -> str:
     # anthropic errors sometimes expose request_id, but shape can vary by version
@@ -101,24 +92,15 @@ def create_message_with_retries(*, attempts: int = 6, base_sleep_s: float = 2.0,
 print(f"[1/2] Searching for AI news on {current_date}...")
 
 search_response = create_message_with_retries(
-    model=SEARCH_MODEL,
-    max_tokens=SEARCH_MAX_TOKENS,
+    model="claude-opus-4-6",
+    max_tokens=4096,
     messages=[
         {
             "role": "user",
-            "content": f"""Search for the latest AI news today ({current_date}).
-
-Return a concise summary (<= 900 tokens) focused ONLY on:
-- 1-2 new AI terms/concepts that are entering mainstream use
-- 1-2 major AI product/model releases
-- 1-2 shutdowns/discontinuations of AI products/services
-
-Avoid long quotes, avoid long lists, and avoid background. Prefer a tight synthesis.""",
+            "content": f"Search for the latest AI news today ({current_date}). Look for: new AI terminology or concepts, new AI product/model releases, and AI products or services being shut down or discontinued.",
         }
     ],
-    tools=[
-        {"type": "web_search_20260209", "name": "web_search", "max_uses": SEARCH_MAX_USES}
-    ],
+    tools=[{"type": "web_search_20260209", "name": "web_search", "max_uses": 3}],
 )
 
 s1_in = search_response.usage.input_tokens
@@ -151,8 +133,8 @@ time.sleep(65)
 print("[2/2] Filtering and formatting into JSON schema...")
 
 filter_response = create_message_with_retries(
-    model=FILTER_MODEL,
-    max_tokens=FILTER_MAX_TOKENS,
+    model="claude-opus-4-6",
+    max_tokens=2048,
     messages=[
         {
             "role": "user",
@@ -170,14 +152,12 @@ Available source URLs (use the most relevant one exactly as written):
 
 Return ONLY a valid JSON object in exactly this format, with no extra text or markdown:
 {{
-  "{current_year}": [
-    {{
-      "event": "<short title of the event>",
-      "description": "<2-3 sentence description of what happened and why it matters>",
-      "source": "<URL of the most relevant source article>",
-      "date": "{current_date}"
-    }}
-  ]
+  "{current_year}": {{
+    "event": "<short title of the event>",
+    "description": "<2-3 sentence description of what happened and why it matters>",
+    "source": "<URL of the most relevant source article>",
+    "date": "{current_date}"
+  }}
 }}""",
         }
     ],
@@ -220,42 +200,8 @@ try:
         except json.JSONDecodeError:
             existing = {}
 
-    def _as_event_list(value):
-        if value is None:
-            return []
-        if isinstance(value, list):
-            return [v for v in value if isinstance(v, dict)]
-        if isinstance(value, dict):
-            return [value]
-        return []
-
-    def _event_key(ev: dict) -> tuple[str, str]:
-        # Prefer date for uniqueness; fallback to event title.
-        d = str(ev.get("date", "") or "").strip()
-        t = str(ev.get("event", "") or "").strip().lower()
-        return (d, t)
-
-    # Be forgiving if the model returns the old shape { "YYYY": { ... } }.
-    if isinstance(parsed, dict) and current_year in parsed and isinstance(parsed[current_year], dict):
-        parsed = {current_year: [parsed[current_year]]}
-
     if isinstance(parsed, dict):
-        for year, incoming_value in parsed.items():
-            year_str = str(year)
-            incoming_events = _as_event_list(incoming_value)
-            if not incoming_events:
-                continue
-
-            existing_events = _as_event_list(existing.get(year_str))
-            existing_keys = {_event_key(e) for e in existing_events}
-
-            for ev in incoming_events:
-                if _event_key(ev) in existing_keys:
-                    continue
-                existing_events.append(ev)
-                existing_keys.add(_event_key(ev))
-
-            existing[year_str] = existing_events
+        existing.update(parsed)
 
     formatted = json.dumps(existing, ensure_ascii=False, indent=2) + "\n"
     for path in targets:

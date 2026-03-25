@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/16ba51ea-8715-4701-8119-fc21bcee84c0/deploy-status)](https://app.netlify.com/projects/timeline-agent/deploys)
+
 ## Run locally
 
 1. https://lmstudio.ai

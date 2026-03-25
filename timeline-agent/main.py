@@ -150,14 +150,18 @@ News summary:
 Available source URLs (use the most relevant one exactly as written):
 {sources_section}
 
-Return ONLY a valid JSON object in exactly this format, with no extra text or markdown:
+If there is no clearly relevant event that fits categories 1-3, return an empty JSON object: {{}}
+
+Otherwise return ONLY a valid JSON object in exactly this format, with no extra text or markdown:
 {{
-  "{current_year}": {{
-    "event": "<short title of the event>",
-    "description": "<2-3 sentence description of what happened and why it matters>",
-    "source": "<URL of the most relevant source article>",
-    "date": "{current_date}"
-  }}
+  "{current_year}": [
+    {{
+      "event": "<short title of the event>",
+      "description": "<2-3 sentence description of what happened and why it matters>",
+      "source": "<URL of the most relevant source article>",
+      "date": "{current_date}"
+    }}
+  ]
 }}""",
         }
     ],
@@ -200,8 +204,38 @@ try:
         except json.JSONDecodeError:
             existing = {}
 
+    def _event_key(e: dict) -> tuple[str, str, str]:
+        # De-dupe within a year by (event, date, source). Keep it simple + stable.
+        return (
+            str(e.get("event", "")).strip(),
+            str(e.get("date", "")).strip(),
+            str(e.get("source", "")).strip(),
+        )
+
     if isinstance(parsed, dict):
-        existing.update(parsed)
+        for year, new_value in parsed.items():
+            if year not in existing:
+                existing[year] = []
+
+            # Normalize existing[year] -> list[dict]
+            if isinstance(existing.get(year), dict):
+                existing[year] = [existing[year]]
+            elif not isinstance(existing.get(year), list):
+                existing[year] = []
+
+            # Normalize new_value -> list[dict]
+            if isinstance(new_value, dict):
+                new_events = [new_value]
+            elif isinstance(new_value, list):
+                new_events = [e for e in new_value if isinstance(e, dict)]
+            else:
+                new_events = []
+
+            existing_keys = {_event_key(e) for e in existing[year] if isinstance(e, dict)}
+            for e in new_events:
+                if _event_key(e) not in existing_keys:
+                    existing[year].append(e)
+                    existing_keys.add(_event_key(e))
 
     formatted = json.dumps(existing, ensure_ascii=False, indent=2) + "\n"
     for path in targets:

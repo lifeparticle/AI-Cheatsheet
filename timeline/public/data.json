@@ -1,26 +1,34 @@
 {
-	"1950": {
-		"event": "Turing publishes \"Computing Machinery and Intelligence\"",
-		"description": "The British mathematician Alan Turing’s article appears in the journal Mind. It takes up whether machines can think, but sidesteps a tidy definition of thought by proposing an operational check: a machine passes if its answers in dialogue are indistinguishable from a person’s—the setup later nicknamed the Turing test after Turing’s “imitation game.” The piece is widely read as an early blueprint for how researchers might probe or compare machine and human behavior without settling metaphysics first.",
-		"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
-		"date": "1950"
-	},
-	"1955": {
-		"event": "The label \"artificial intelligence\" enters the literature",
-		"description": "John McCarthy (Dartmouth College), Marvin Minsky (Harvard University), Nathaniel Rochester (IBM), and Claude Shannon (Bell Telephone Laboratories) submit a grant proposal for a summer research program at Dartmouth. The document uses the phrase \"artificial intelligence\" and frames a collaborative push to see whether aspects of learning and reasoning could be realized in machines.",
-		"source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
-		"date": "1955"
-	},
-	"2025": {
-		"event": "Karpathy coins \"vibe coding\" for LLM-assisted development",
-		"description": "Andrej Karpathy, AI researcher and founding member of OpenAI, coined the term \"vibe coding\" in early 2025. It describes a software development approach where programmers use natural language to guide coding assistants, prioritizing intent and iteration over manually writing and reviewing every line.",
-		"source": "https://x.com/karpathy/status/1886192184808149383",
-		"date": "2025-02-03"
-	},
-	"2026": {
-		"event": "OpenAI Discontinues Sora Video Generation App",
-		"description": "OpenAI announced it is shutting down its Sora AI video generation app and API, marking a major reversal for one of the most hyped AI product launches. The discontinuation also led Disney to pull out of a $1 billion investment deal tied to the platform, signaling significant commercial and strategic fallout for OpenAI's video generation ambitions.",
-		"source": "https://www.bloomberg.com/news/articles/2026-03-24/openai-plans-to-discontinue-support-for-sora-ai-video-generator",
-		"date": "2026-03-24"
-	}
+  "1950": [
+    {
+      "event": "Turing publishes \"Computing Machinery and Intelligence\"",
+      "description": "The British mathematician Alan Turing’s article appears in the journal Mind. It takes up whether machines can think, but sidesteps a tidy definition of thought by proposing an operational check: a machine passes if its answers in dialogue are indistinguishable from a person’s—the setup later nicknamed the Turing test after Turing’s “imitation game.” The piece is widely read as an early blueprint for how researchers might probe or compare machine and human behavior without settling metaphysics first.",
+      "source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+      "date": "1950"
+    }
+  ],
+  "1955": [
+    {
+      "event": "The label \"artificial intelligence\" enters the literature",
+      "description": "John McCarthy (Dartmouth College), Marvin Minsky (Harvard University), Nathaniel Rochester (IBM), and Claude Shannon (Bell Telephone Laboratories) submit a grant proposal for a summer research program at Dartmouth. The document uses the phrase \"artificial intelligence\" and frames a collaborative push to see whether aspects of learning and reasoning could be realized in machines.",
+      "source": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+      "date": "1955"
+    }
+  ],
+  "2025": [
+    {
+      "event": "Karpathy coins \"vibe coding\" for LLM-assisted development",
+      "description": "Andrej Karpathy, AI researcher and founding member of OpenAI, coined the term \"vibe coding\" in early 2025. It describes a software development approach where programmers use natural language to guide coding assistants, prioritizing intent and iteration over manually writing and reviewing every line.",
+      "source": "https://x.com/karpathy/status/1886192184808149383",
+      "date": "2025-02-03"
+    }
+  ],
+  "2026": [
+    {
+      "event": "OpenAI Discontinues Sora Video Generation App",
+      "description": "OpenAI announced it is shutting down its Sora AI video generation app and API, marking a major reversal for one of the most hyped AI product launches. The discontinuation also led Disney to pull out of a $1 billion investment deal tied to the platform, signaling significant commercial and strategic fallout for OpenAI's video generation ambitions.",
+      "source": "https://www.bloomberg.com/news/articles/2026-03-24/openai-plans-to-discontinue-support-for-sora-ai-video-generator",
+      "date": "2026-03-24"
+    }
+  ]
 }

@@ -3,6 +3,7 @@ import {
 	defaultTimelineData,
 	fetchTimelineData,
 	sortedTimelineEntries,
+	timelineEntryId,
 	type TimelineItem,
 } from "./timelineData";
 import { useQuery } from "@tanstack/react-query";
@@ -167,8 +168,11 @@ export default function App() {
 	const timelineForUI = timeline ?? defaultTimelineData;
 
 	const entries = sortedTimelineEntries(timelineForUI);
-	const chronIndexByYear = new Map(
-		chronologicalTimelineEntries(timelineForUI).map(([y], i) => [y, i]),
+	const chronIndexById = new Map(
+		chronologicalTimelineEntries(timelineForUI).map(([y, item], i) => [
+			timelineEntryId(y, item),
+			i,
+		]),
 	);
 	const years = entries.map(([y]) => Number(y));
 	const span =
@@ -230,10 +234,12 @@ export default function App() {
 
 						{entries.map(([year, item]) => (
 							<TimelineRow
-								key={year}
+								key={timelineEntryId(year, item)}
 								year={year}
 								item={item}
-								chronologicalIndex={chronIndexByYear.get(year) ?? 0}
+								chronologicalIndex={
+									chronIndexById.get(timelineEntryId(year, item)) ?? 0
+								}
 							/>
 						))}
 

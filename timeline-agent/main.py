@@ -48,16 +48,27 @@ def create_message_with_retries(*, attempts: int = 6, base_sleep_s: float = 2.0,
         except Exception as exc:
             last_exc = exc
 
-            retryable = isinstance(
-                exc,
-                (
-                    anthropic.InternalServerError,
-                    anthropic.RateLimitError,
-                    anthropic.APIConnectionError,
-                    anthropic.APITimeoutError,
-                    anthropic.OverloadedError,
-                ),
-            )
+            # Different anthropic SDK versions expose different exception types.
+            maybe_retryable_types = [
+                getattr(anthropic, "InternalServerError", None),
+                getattr(anthropic, "RateLimitError", None),
+                getattr(anthropic, "APIConnectionError", None),
+                getattr(anthropic, "APITimeoutError", None),
+                getattr(anthropic, "OverloadedError", None),
+            ]
+            retryable_types = tuple(t for t in maybe_retryable_types if t is not None)
+
+            retryable = isinstance(exc, retryable_types)
+
+            # Fallback: treat specific status codes as retryable even if the SDK
+            # doesn't provide a dedicated exception class.
+            if not retryable:
+                status_code = getattr(exc, "status_code", None)
+                if isinstance(status_code, int) and (
+                    status_code >= 500 or status_code in (429, 529)
+                ):
+                    retryable = True
+
             if not retryable or i == attempts - 1:
                 rid = _safe_request_id(exc)
                 if rid:

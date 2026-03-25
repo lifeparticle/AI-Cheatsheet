@@ -2,6 +2,7 @@ import os
 import json
 import re
 import time
+import random
 from datetime import datetime
 from pathlib import Path
 import anthropic
@@ -30,10 +31,56 @@ def calc_cost(input_tokens, output_tokens):
 
 total_cost = 0.0
 
+def _safe_request_id(exc: Exception) -> str:
+    # anthropic errors sometimes expose request_id, but shape can vary by version
+    return str(getattr(exc, "request_id", "") or "")
+
+
+def create_message_with_retries(*, attempts: int = 6, base_sleep_s: float = 2.0, **kwargs):
+    """
+    Anthropic occasionally returns transient 5xx / overloaded errors.
+    CI should retry those instead of failing the run.
+    """
+    last_exc: Exception | None = None
+    for i in range(attempts):
+        try:
+            return client.messages.create(**kwargs)
+        except Exception as exc:
+            last_exc = exc
+
+            retryable = isinstance(
+                exc,
+                (
+                    anthropic.InternalServerError,
+                    anthropic.RateLimitError,
+                    anthropic.APIConnectionError,
+                    anthropic.APITimeoutError,
+                    anthropic.OverloadedError,
+                ),
+            )
+            if not retryable or i == attempts - 1:
+                rid = _safe_request_id(exc)
+                if rid:
+                    print(f"    request_id: {rid}")
+                raise
+
+            # Exponential backoff with jitter (cap to keep CI reasonable)
+            sleep_s = min(60.0, base_sleep_s * (2**i)) * (0.75 + random.random() * 0.5)
+            rid = _safe_request_id(exc)
+            msg = str(exc)
+            if rid:
+                msg = f"{msg} (request_id: {rid})"
+            print(f"    transient error, retrying in {sleep_s:.1f}s: {msg}")
+            time.sleep(sleep_s)
+
+    # Should be unreachable, but keep mypy happy.
+    raise last_exc if last_exc else RuntimeError("message create failed unexpectedly")
+
+
 # --- Step 1: Search for latest AI news ---
 print(f"[1/2] Searching for AI news on {current_date}...")
 
-search_response = client.messages.create(
+search_response = create_message_with_retries(
     model="claude-opus-4-6",
     max_tokens=4096,
     messages=[
@@ -74,7 +121,7 @@ time.sleep(65)
 # --- Step 2: Filter and format into JSON schema ---
 print("[2/2] Filtering and formatting into JSON schema...")
 
-filter_response = client.messages.create(
+filter_response = create_message_with_retries(
     model="claude-opus-4-6",
     max_tokens=2048,
     messages=[

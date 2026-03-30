@@ -75,6 +75,7 @@
 **Code:**
 1. https://crewai.com
 2. https://www.langchain.com/langgraph
+3. https://pi.dev
 
 ## Tool calling
 

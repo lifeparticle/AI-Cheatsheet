@@ -5,8 +5,9 @@ When the agent calls a tool, it's essentially saying, "I need something I can't 
 
 Let's talk about a news agent.
 
-1. **Collection** — Claude uses the web search tool to go out and find today's AI news. This is the "agentic" part where the model decides what to search for and reads the results.
-2. **Filtering** — Claude reads the raw news and picks the single most notable event from three specific categories. This is still AI-driven but heavily constrained by the prompt — it's making a judgment call but within tight rules.
-3. **Summarising into a specific format** — Claude outputs a structured JSON object with fixed fields (event, description, source, date). The code then strips any formatting noise and validates that it parses correctly.
-4. **Deterministic delivery via GitHub Action** — No AI involved here at all. It's pure automation: run the script, check if the file changed, commit to a new branch, and open a PR. You stay in the loop by reviewing the PR before anything merges.
+1. **Trigger** — GitHub Actions schedules the workflow to run automatically (in this case it's set up for manual runs). No human has to remember to kick it off — the system wakes itself up.
+2. **Collection** — Claude uses the web search tool to go out and find today's AI news. This is the "agentic" part where the model decides what to search for and reads the results.
+3. **Filtering** — Claude reads the raw news and picks the single most notable event from three specific categories. This is still AI-driven but heavily constrained by the prompt — it's making a judgment call but within tight rules.
+4. **Summarising into a specific format** — Claude outputs a structured JSON object with fixed fields (event, description, source, date). The code then strips any formatting noise and validates that it parses correctly.
+5. **Deterministic delivery via GitHub Action** — No AI involved here at all. It's pure automation: run the script, check if the file changed, commit to a new branch, and open a PR. You stay in the loop by reviewing the PR before anything merges.
 The clean insight here is that only steps 1 and 2 involve AI judgment — everything else is just reliable, predictable code doing mechanical work. That's actually good agent design: use AI where you need reasoning, use deterministic code everywhere else.

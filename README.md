@@ -1,97 +1,153 @@
+# AI Cheatsheet
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/16ba51ea-8715-4701-8119-fc21bcee84c0/deploy-status)](https://app.netlify.com/projects/timeline-agent/deploys)
 
-## Run locally
+A curated reference of tools, platforms, courses, papers, and protocols for working with AI and Large Language Models.
 
-1. https://lmstudio.ai
-2. https://github.com/open-webui/open-webui
-3. https://ollama.com
+## Table of Contents
+
+- [LLM Providers](#llm-providers)
+- [Run Locally](#run-locally)
+- [Analysis](#analysis)
+- [Gateway](#gateway)
+- [Courses](#courses)
+- [Books](#books)
+- [Blog](#blog)
+- [Papers](#papers)
+- [Protocols](#protocols)
+- [Agents](#agents)
+- [Tool Calling](#tool-calling)
+- [Tools](#tools)
+- [Others](#others)
+
+## LLM Providers
+
+| Provider                                   |
+| ------------------------------------------ |
+| [OpenAI](https://openai.com)               |
+| [Anthropic](https://anthropic.com)         |
+| [Google Gemini](https://gemini.google.com) |
+| [Mistral AI](https://mistral.ai)           |
+| [DeepSeek](https://www.deepseek.com)       |
+
+## Run Locally
+
+| Tool                                                   |
+| ------------------------------------------------------ |
+| [LM Studio](https://lmstudio.ai)                       |
+| [Open WebUI](https://github.com/open-webui/open-webui) |
+| [Ollama](https://ollama.com)                           |
 
 ## Analysis
 
-1. https://artificialanalysis.ai
-2. https://arena.ai
+| Tool                                                 |
+| ---------------------------------------------------- |
+| [Artificial Analysis](https://artificialanalysis.ai) |
+| [Arena AI](https://arena.ai)                         |
 
 ## Gateway
 
-1. https://openrouter.ai
-2. https://www.litellm.ai
-3. https://konghq.com
-4. https://portkey.ai
-5. https://aws.amazon.com/bedrock
-6. https://cloud.google.com/generative-ai-studio
+| Platform                                                                     |
+| ---------------------------------------------------------------------------- |
+| [OpenRouter](https://openrouter.ai)                                          |
+| [LiteLLM](https://www.litellm.ai)                                            |
+| [Kong](https://konghq.com)                                                   |
+| [Portkey](https://portkey.ai)                                                |
+| [AWS Bedrock](https://aws.amazon.com/bedrock)                                |
+| [Google Generative AI Studio](https://cloud.google.com/generative-ai-studio) |
 
-## Course
+## Courses
 
-1. [Anthropic courses](https://anthropic.skilljar.com/)
-2. [Skillsbuild](https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence)
-3. [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)
-4. [Training for AI engineers](https://learn.microsoft.com/en-us/training/career-paths/ai-engineer)
-5. [The AI Engineer Path](https://scrimba.com/the-ai-engineer-path-c02v)
-6. [Databricks](https://www.databricks.com/training/catalog?search=ai&costs=free)
-7. [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+| Course                                                                                              | Provider        |
+| --------------------------------------------------------------------------------------------------- | --------------- |
+| [Anthropic Courses](https://anthropic.skilljar.com/)                                                | Anthropic       |
+| [AI Learning Path](https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence) | IBM SkillsBuild |
+| [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)    | AWS             |
+| [Training for AI Engineers](https://learn.microsoft.com/en-us/training/career-paths/ai-engineer)    | Microsoft       |
+| [The AI Engineer Path](https://scrimba.com/the-ai-engineer-path-c02v)                               | Scrimba         |
+| [AI & ML Catalog](https://www.databricks.com/training/catalog?search=ai&costs=free)                 | Databricks      |
+| [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)        | Google          |
 
-## Book
+## Books
 
-1. https://github.com/chiphuyen/aie-book
-2. [HBR's 10 Must Reads on AI](https://store.hbr.org/product/hbr-s-10-must-reads-on-ai-with-bonus-article-how-to-win-with-machine-learning-by-ajay-agrawal-joshua-gans-and-avi-goldfarb/10666?srsltid=AfmBOoobOoS7EnF0zyGSOZrQGW1rtTAWDgbGlGZR9UvT6BgA66yWvkH)
+| Title                                                                                                                                                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AI Engineering Book](https://github.com/chiphuyen/aie-book)                                                                                                                                                                                                |
+| [HBR's 10 Must Reads on AI](https://store.hbr.org/product/hbr-s-10-must-reads-on-ai-with-bonus-article-how-to-win-with-machine-learning-by-ajay-agrawal-joshua-gans-and-avi-goldfarb/10666?srsltid=AfmBOoobOoS7EnF0zyGSOZrQGW1rtTAWDgbGlGZR9UvT6BgA66yWvkH) |
 
 ## Blog
 
-1. [Introduction to Large Language Models: Everything You Need to Know for 2025](https://www.lakera.ai/blog/large-language-models-guide)
+| Title                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------- |
+| [Introduction to Large Language Models: Everything You Need to Know for 2025](https://www.lakera.ai/blog/large-language-models-guide) |
 
-## Paper
+## Papers
 
-1. [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954)
-2. [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941)
-3. [Agents of Chaos](https://arxiv.org/abs/2602.20021)
-4. [Does Prompt Formatting Have Any Impact on LLM Performance?](https://arxiv.org/abs/2411.10541)
-5. [Helpful Agent Meets Deceptive Judge: Understanding Vulnerabilities in Agentic Workflows](https://arxiv.org/abs/2506.03332)
-6. [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
-7. [Can LLMs Ask Good Questions?](https://arxiv.org/abs/2501.03491)
-8. [Toolshed: Scale Tool-Equipped Agents with Advanced RAG-Tool Fusion and Tool Knowledge Bases](https://arxiv.org/abs/2410.14594)
+| Title                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------- |
+| [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954) |
+| [The Illusion of Thinking: Strengths and Limitations of Reasoning Models](https://arxiv.org/abs/2506.06941)         |
+| [Agents of Chaos](https://arxiv.org/abs/2602.20021)                                                                 |
+| [Does Prompt Formatting Have Any Impact on LLM Performance?](https://arxiv.org/abs/2411.10541)                      |
+| [Helpful Agent Meets Deceptive Judge: Vulnerabilities in Agentic Workflows](https://arxiv.org/abs/2506.03332)       |
+| [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)                   |
+| [Can LLMs Ask Good Questions?](https://arxiv.org/abs/2501.03491)                                                    |
+| [Toolshed: Scale Tool-Equipped Agents with Advanced RAG-Tool Fusion](https://arxiv.org/abs/2410.14594)              |
 
-## Protocol
+## Protocols
 
-1. [Agent2Agent Protocol](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
-2. [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)
-3. [Agent Network Protocol](https://www.agent-network-protocol.com/)
-4. [Agent–User Interaction Protocol](https://docs.ag-ui.com/introduction#the-agent%E2%80%93user-interaction-ag-ui-protocol)
-5. [Agora Protocol](https://agoraprotocol.org/)
-6. [LMOS Protocol](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)
+Agent interoperability and communication standards.
 
-## Agent
+| Protocol                     | Description                                                    | Link                                                                                          |
+| ---------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Agent2Agent (A2A)            | Google's protocol for agent interoperability                   | [Blog](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)         |
+| Model Context Protocol (MCP) | Open protocol for model-tool context (introduced by Anthropic) | [Docs](https://modelcontextprotocol.io/docs/getting-started/intro)                            |
+| Agent Network Protocol (ANP) | Open protocol for agent-to-agent networking                    | [Site](https://www.agent-network-protocol.com/)                                               |
+| AG-UI Protocol               | Agent–User interaction protocol                                | [Docs](https://docs.ag-ui.com/introduction#the-agent%E2%80%93user-interaction-ag-ui-protocol) |
+| Agora Protocol               | Decentralized agent communication protocol                     | [Site](https://agoraprotocol.org/)                                                            |
+| LMOS Protocol                | Eclipse LMOS agent protocol                                    | [Docs](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)                             |
 
-1. [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
-2. [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
-3. [How to Build an Agent](https://blog.langchain.com/how-to-build-an-agent/)
+## Agents
 
-**No Code:**
-1. https://n8n.io
+### Guides
 
-**Low code:**
-1. https://azure.microsoft.com/en-us/products/ai-foundry/agent-service
-2. https://cloud.google.com/products/agent-builder
+| Title                                | Link                                                                                                          |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| A Practical Guide to Building Agents | [OpenAI (PDF)](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) |
+| Building Effective Agents            | [Anthropic](https://www.anthropic.com/engineering/building-effective-agents)                                  |
+| How to Build an Agent                | [LangChain](https://blog.langchain.com/how-to-build-an-agent/)                                                |
 
-**Code:**
-1. https://crewai.com
-2. https://www.langchain.com/langgraph
-3. https://pi.dev
+| Type     | Platform                                                                                              |
+| -------- | ----------------------------------------------------------------------------------------------------- |
+| No Code  | [n8n](https://n8n.io)                                                                                 |
+| Low Code | [Azure AI Foundry Agent Service](https://azure.microsoft.com/en-us/products/ai-foundry/agent-service) |
+| Low Code | [Google Agent Builder](https://cloud.google.com/products/agent-builder)                               |
+| Code     | [CrewAI](https://crewai.com)                                                                          |
+| Code     | [LangGraph](https://www.langchain.com/langgraph)                                                      |
+| Code     | [Pi.dev](https://pi.dev)                                                                              |
 
-## Tool calling
+## Tool Calling
 
-1. https://www.anthropic.com/engineering/advanced-tool-use
+| Resource                                                                     |
+| ---------------------------------------------------------------------------- |
+| [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) |
 
 ## Tools
 
-1. https://stitch.withgoogle.com
-2. https://github.com/agent0ai/agent-zero
-3. https://www.remotion.dev/prompts
-4. https://www.pencil.dev
-5. https://quiver.ai
-6. https://anythingllm.com
-7. https://app.getrecall.ai
-8. https://github.com/Fosowl/agenticSeek
+| Tool                                                 |
+| ---------------------------------------------------- |
+| [Google Stitch](https://stitch.withgoogle.com)       |
+| [Agent Zero](https://github.com/agent0ai/agent-zero) |
+| [Remotion Prompts](https://www.remotion.dev/prompts) |
+| [Pencil](https://www.pencil.dev)                     |
+| [Quiver AI](https://quiver.ai)                       |
+| [AnythingLLM](https://anythingllm.com)               |
+| [Recall AI](https://app.getrecall.ai)                |
+| [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
+| [OpenClaw](https://openclaw.ai/)                     |
 
 ## Others
 
-1. https://www.moltbook.com
+| Resource                             |
+| ------------------------------------ |
+| [Moltbook](https://www.moltbook.com) |

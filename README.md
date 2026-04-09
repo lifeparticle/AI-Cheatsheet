@@ -146,6 +146,10 @@ Agent interoperability and communication standards.
 | [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
 | [OpenClaw](https://openclaw.ai/)                     |
 
+## Memory
+
+https://github.com/milla-jovovich/mempalace
+
 ## Others
 
 | Resource                             |

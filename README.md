@@ -145,6 +145,7 @@ Agent interoperability and communication standards.
 | [Recall AI](https://app.getrecall.ai)                |
 | [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
 | [OpenClaw](https://openclaw.ai/)                     |
+| [Browserbase](https://www.browserbase.com/)          |
 
 ## Memory
 

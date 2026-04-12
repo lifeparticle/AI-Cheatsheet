@@ -156,3 +156,14 @@ https://github.com/milla-jovovich/mempalace
 | Resource                             |
 | ------------------------------------ |
 | [Moltbook](https://www.moltbook.com) |
+
+## Document parsing
+
+1. https://github.com/run-llama/liteparse
+
+## Vector database
+
+1. https://www.pinecone.io/
+2. https://turbopuffer.com/
+3. https://qdrant.tech/
+4. https://vespa.ai/

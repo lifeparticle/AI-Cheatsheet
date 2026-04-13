@@ -160,6 +160,7 @@ https://github.com/milla-jovovich/mempalace
 ## Document parsing
 
 1. https://github.com/run-llama/liteparse
+2. https://github.com/docling-project/docling
 
 ## Vector database
 

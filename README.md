@@ -146,6 +146,7 @@ Agent interoperability and communication standards.
 | [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
 | [OpenClaw](https://openclaw.ai/)                     |
 | [Browserbase](https://www.browserbase.com/)          |
+| [Magika](https://github.com/google/magika)           |
 
 ## Memory
 

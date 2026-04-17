@@ -147,6 +147,7 @@ Agent interoperability and communication standards.
 | [OpenClaw](https://openclaw.ai/)                     |
 | [Browserbase](https://www.browserbase.com/)          |
 | [Magika](https://github.com/google/magika)           |
+| [Stich](https://stitch.withgoogle.com/)              |
 
 ## Memory
 
@@ -157,6 +158,11 @@ https://github.com/milla-jovovich/mempalace
 | Resource                             |
 | ------------------------------------ |
 | [Moltbook](https://www.moltbook.com) |
+
+## Tokens
+
+1. https://github.com/toon-format/toon
+2. https://github.com/JuliusBrussee/caveman
 
 ## Document parsing
 

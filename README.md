@@ -171,7 +171,14 @@ https://github.com/milla-jovovich/mempalace
 
 ## Vector database
 
-1. https://www.pinecone.io/
-2. https://turbopuffer.com/
-3. https://qdrant.tech/
-4. https://vespa.ai/
+1. https://www.pinecone.io
+2. https://turbopuffer.com
+3. https://qdrant.tech
+4. https://vespa.ai
+
+## Vector search
+
+- Hierarchical Navigable Small World (HNSW)
+- Inverted File (IVF)
+- Approximate Nearest Neighbor (ANN)
+- Product Quantization (PQ)

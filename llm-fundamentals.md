@@ -1,16 +1,24 @@
-### 1. **Prompt Engineering:** Prompt engineering means writing better instructions for a model so it gives better outputs without changing the model itself.
+### 1. Prompt Engineering
+
+Prompt engineering means writing better instructions for a model so it gives better outputs without changing the model itself.
 
 Example: “You are a helpful customer support assistant. Answer politely, briefly, and only using store policy.”
 
-### 2. **Hard Prompt:** A hard prompt is the normal text prompt written in human language. It is manually designed and directly typed by the user.
+### 2. Hard Prompt
+
+A hard prompt is the normal text prompt written in human language. It is manually designed and directly typed by the user.
 
 Example: That exact text instruction is the hard prompt.
 
-### 3. **Soft Prompt:** A soft prompt is a learned prompt made of trainable vectors instead of normal words. It is optimized during training and usually not human-readable.
+### 3. Soft Prompt
+
+A soft prompt is a learned prompt made of trainable vectors instead of normal words. It is optimized during training and usually not human-readable.
 
 Example: Train a small prompt embedding to improve the base model's performance for e-commerce support.
 
-### 4. **Fine-Tuning:** Fine-tuning means further training a pretrained model on a specific dataset so the model itself becomes better at a task or domain.
+### 4. Fine-Tuning
+
+Fine-tuning means further training a pretrained model on a specific dataset so the model itself becomes better at a task or domain.
 
 Example: Train the model on thousands of past customer support conversations to learn store-specific behavior.
 
@@ -65,7 +73,7 @@ citations, or explanations that are completely false.
 
 This illustrates both the strengths and weaknesses of LLMs. The model gets it right most
 of the time because the correct answer is well represented in its training data — but it
-can still occasionally output something wrong like **Mars**. High confidence doesn't
+can still occasionally output something wrong, like **Mars**. High confidence doesn't
 equal accuracy.
 
 ### 7. Context window

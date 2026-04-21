@@ -1,0 +1,1 @@
+- https://cursor.com/docs/reference/ignore-file

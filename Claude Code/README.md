@@ -1,2 +1,3 @@
 - https://github.com/forrestchang/andrej-karpathy-skills
 - https://code.claude.com/docs/en/permissions
+- https://platform.claude.com/docs/en/build-with-claude/token-counting

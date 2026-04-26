@@ -159,6 +159,8 @@ https://github.com/milla-jovovich/mempalace
 | ------------------------------------ |
 | [Moltbook](https://www.moltbook.com) |
 
+https://github.com/tw93/Kami
+
 ## Tokens
 
 1. https://github.com/toon-format/toon

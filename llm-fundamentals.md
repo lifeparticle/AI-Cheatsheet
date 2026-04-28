@@ -81,3 +81,8 @@ equal accuracy.
 ### 8. Temperature
 
 ### 9. Retrieval-Augmented Generation (RAG)
+
+
+### Resources
+
+- https://www.youtube.com/watch?v=NKnZYvZA7w4

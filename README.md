@@ -18,7 +18,12 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 - [Agents](#agents)
 - [Tool Calling](#tool-calling)
 - [Tools](#tools)
+- [Memory](#memory)
 - [Others](#others)
+- [Tokens](#tokens)
+- [Document parsing](#document-parsing)
+- [Vector database](#vector-database)
+- [Vector search](#vector-search)
 
 ## LLM Providers
 
@@ -117,6 +122,8 @@ Agent interoperability and communication standards.
 | Building Effective Agents            | [Anthropic](https://www.anthropic.com/engineering/building-effective-agents)                                  |
 | How to Build an Agent                | [LangChain](https://blog.langchain.com/how-to-build-an-agent/)                                                |
 
+### Platforms
+
 | Type     | Platform                                                                                              |
 | -------- | ----------------------------------------------------------------------------------------------------- |
 | No Code  | [n8n](https://n8n.io)                                                                                 |
@@ -147,36 +154,37 @@ Agent interoperability and communication standards.
 | [OpenClaw](https://openclaw.ai/)                     |
 | [Browserbase](https://www.browserbase.com/)          |
 | [Magika](https://github.com/google/magika)           |
-| [Stich](https://stitch.withgoogle.com/)              |
 
 ## Memory
 
-https://github.com/milla-jovovich/mempalace
+| Resource                                        |
+| ----------------------------------------------- |
+| [mempalace](https://github.com/milla-jovovich/mempalace) |
 
 ## Others
 
-| Resource                             |
-| ------------------------------------ |
-| [Moltbook](https://www.moltbook.com) |
-
-https://github.com/tw93/Kami
+| Resource                                                |
+| ------------------------------------------------------- |
+| [Moltbook](https://www.moltbook.com)                    |
+| [Kami](https://github.com/tw93/Kami)                    |
+| [There's An AI For That](https://theresanaiforthat.com) |
 
 ## Tokens
 
-1. https://github.com/toon-format/toon
-2. https://github.com/JuliusBrussee/caveman
+1. [toon-format/toon](https://github.com/toon-format/toon)
+2. [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)
 
 ## Document parsing
 
-1. https://github.com/run-llama/liteparse
-2. https://github.com/docling-project/docling
+1. [run-llama/liteparse](https://github.com/run-llama/liteparse)
+2. [docling-project/docling](https://github.com/docling-project/docling)
 
 ## Vector database
 
-1. https://www.pinecone.io
-2. https://turbopuffer.com
-3. https://qdrant.tech
-4. https://vespa.ai
+1. [Pinecone](https://www.pinecone.io)
+2. [Turbopuffer](https://turbopuffer.com)
+3. [Qdrant](https://qdrant.tech)
+4. [Vespa](https://vespa.ai)
 
 ## Vector search
 

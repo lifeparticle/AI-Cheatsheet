@@ -19,15 +19,13 @@ This repo includes a timeline news agent at `timeline-agent/main.py`. It follows
 
 The clean insight here is that AI judgment is used only for collection + selection; everything else is deterministic automation.
 
-
-
 ## Marketing agent (Marketing Analyst / Brand Manager)
 
 This repo also includes a marketing/brand intelligence agent at `marketing-agent/main.py`. It follows the same pattern as the timeline news agent:
 
 1. **Trigger** — GitHub Actions (manual by default) runs `/.github/workflows/update-marketing-data.yml`.
-2. **Collection** — Claude uses web search to find the most impactful marketing/brand development for today.
-3. **Filtering** — Claude selects a single best development across categories like platform/measurement changes, competitor campaigns, consumer trends, or regulation.
+2. **Collection** — Claude uses web search to find impactful marketing/brand developments for today.
+3. **Filtering** — Claude extracts as many relevant developments as possible across categories like platform/measurement changes, competitor campaigns, consumer trends, or regulation.
 4. **Structured output** — It returns strict JSON with fields designed for both:
    - **Marketing Analyst**: `analyst_take` (what to measure/watch; reporting/budget implications)
    - **Brand Manager**: `brand_take` (positioning/messaging/creative implications)

@@ -3,6 +3,7 @@ import json
 import re
 import time
 import random
+import argparse
 from datetime import datetime
 from pathlib import Path
 import anthropic
@@ -32,6 +33,61 @@ def calc_cost(input_tokens, output_tokens):
 
 
 total_cost = 0.0
+
+
+def _normalize_role(role: str) -> str:
+    r = (role or "").strip().lower()
+    if r in ("marketing-analyst", "marketing_analyst", "analyst", "ma"):
+        return "marketing_analyst"
+    if r in ("brand-manager", "brand_manager", "brand", "bm"):
+        return "brand_manager"
+    return "other"
+
+
+ROLE_PROFILES: dict[str, dict[str, object]] = {
+    "marketing_analyst": {
+        "label": "Marketing Analyst",
+        "decision_horizon": "daily/weekly optimization + monthly reporting + quarterly budget shifts",
+        "primary_outputs": [
+            "what changed (platform/policy/competitor/trend) + impact on measurement",
+            "KPIs to watch + expected directional impact",
+            "instrumentation / tracking checklist (server-side, consent, events, QA)",
+            "recommended validation: attribution vs incrementality vs MMM",
+            "7-day + 30-day actions",
+        ],
+        "focus_prompt": (
+            "You are supporting a Marketing Analyst. Optimize for measurement quality, reporting clarity, "
+            "budget allocation decisions, and practical next steps the analyst can implement."
+        ),
+    },
+    "brand_manager": {
+        "label": "Brand Manager",
+        "decision_horizon": "campaign planning + messaging/positioning + brand risk management",
+        "primary_outputs": [
+            "what changed + why it matters to brand perception",
+            "positioning/messaging implications + creative direction",
+            "brand risks (adjacency, trust, policy) + guardrails",
+            "7-day + 30-day actions (briefs, comms, experiments, monitoring)",
+        ],
+        "focus_prompt": (
+            "You are supporting a Brand Manager. Optimize for positioning, messaging architecture, creative direction, "
+            "brand risk/opportunity, and concrete briefing guidance."
+        ),
+    },
+    "other": {
+        "label": "Other",
+        "decision_horizon": "pragmatic cross-functional marketing planning",
+        "primary_outputs": [
+            "what changed + executive-ready summary",
+            "who it impacts + what to do next",
+            "risks/assumptions + KPIs to watch",
+        ],
+        "focus_prompt": (
+            "You are supporting a cross-functional marketing stakeholder. Optimize for clarity, plausibility, "
+            "and actionability without over-specializing."
+        ),
+    },
+}
 
 
 def _safe_request_id(exc: Exception) -> str:
@@ -64,6 +120,17 @@ def _is_retryable_error(exc: Exception) -> bool:
 def _backoff_sleep_s(*, attempt_idx: int, base_sleep_s: float) -> float:
     # Exponential backoff with jitter (cap to keep CI reasonable)
     return min(60.0, base_sleep_s * (2**attempt_idx)) * (0.75 + random.random() * 0.5)
+
+
+def _maybe_wait_for_rate_limit(*, input_tokens: int) -> None:
+    """
+    This script sometimes sends a large web-search prompt. Some Anthropic accounts
+    can hit short-window token caps. Waiting is a cheap way to reduce flaky runs.
+    """
+    # Heuristic: only wait when we used a lot of input tokens.
+    if isinstance(input_tokens, int) and input_tokens >= 18_000:
+        print("    waiting 65s for rate limit window to reset...")
+        time.sleep(65)
 
 
 def create_message_with_retries(*, attempts: int = 6, base_sleep_s: float = 2.0, **kwargs):
@@ -99,6 +166,22 @@ def create_message_with_retries(*, attempts: int = 6, base_sleep_s: float = 2.0,
     raise last_exc if last_exc else RuntimeError("message create failed unexpectedly")
 
 
+parser = argparse.ArgumentParser(description="Fetch daily marketing/brand intelligence and append to data.json.")
+parser.add_argument(
+    "--role",
+    default=os.getenv("MARKETING_ROLE", "marketing_analyst"),
+    help="One of: marketing_analyst | brand_manager | other (can also set MARKETING_ROLE).",
+)
+args = parser.parse_args()
+
+role_key = _normalize_role(args.role)
+role_profile = ROLE_PROFILES[role_key]
+role_label = str(role_profile["label"])
+role_focus_prompt = str(role_profile["focus_prompt"])
+
+print(f"Role: {role_label}")
+
+
 # --- Step 1: Search for latest marketing/brand intelligence ---
 print(f"[1/2] Searching for marketing & brand intelligence on {current_date}...")
 
@@ -108,17 +191,24 @@ search_response = create_message_with_retries(
     messages=[
         {
             "role": "user",
-            "content": f"""Search for the most impactful marketing/brand development today ({current_date}) that would matter to:
-- a Marketing Analyst (measurement, channel/platform changes, budget allocation, reporting)
-- a Brand Manager (positioning, messaging, creative direction, brand risk/opportunity)
+            "content": f"""Today is {current_date}.
 
-Prioritize one of these categories (pick the single strongest):
-1) Major ad platform / privacy / measurement change (Google/Meta/TikTok/Amazon/Apple, etc.)
-2) Competitor or category-leading brand campaign / repositioning / partnership
-3) Consumer/cultural trend with clear brand implications
-4) Regulation or policy change affecting marketing (ads, data, disclosures)
+{role_focus_prompt}
 
-Return a concise summary plus the most relevant source URLs."""
+Task:
+1) Find 3-6 candidate developments from reputable sources published recently (ideally today, otherwise within the last 7 days).
+2) Each candidate must clearly fit ONE category:
+   - platform_change (major ad platform / privacy / measurement change)
+   - competitor_campaign (competitor or category-leading campaign / repositioning / partnership)
+   - consumer_trend (consumer/cultural trend with clear brand implications)
+   - regulation (regulation or policy change affecting marketing)
+3) Then pick the single most actionable candidate for a {role_label}.
+
+Output requirements:
+- Provide a short list of candidates with: headline, category, 1-sentence why it matters for the role, and source URL.
+- Then provide a final selected development with a 5-8 sentence intel summary.
+- Include only claims that are supported by the sources.
+""",
         }
     ],
     tools=[{"type": "web_search_20260209", "name": "web_search", "max_uses": 3}],
@@ -146,25 +236,25 @@ for block in search_response.content:
 print(f"    found {len(source_urls)} source URLs")
 sources_section = "\n".join(source_urls) if source_urls else "(none found)"
 
-# Rate limit: 30k input tokens/minute. Call 1 may exceed that, so wait.
-print("    waiting 65s for rate limit window to reset...")
-time.sleep(65)
+_maybe_wait_for_rate_limit(input_tokens=s1_in)
 
 # --- Step 2: Filter and format into JSON schema ---
 print("[2/2] Filtering and formatting into JSON schema...")
 
 filter_response = create_message_with_retries(
     model="claude-opus-4-6",
-    max_tokens=2048,
+    max_tokens=3072,
     messages=[
         {
             "role": "user",
-            "content": f"""Given the following marketing/brand intelligence summary, extract as many actionable developments as you can that fit one of these categories:
+            "content": f"""You are producing a real-world work product for a {role_label}.
 
-1) Major ad platform / privacy / measurement change
-2) Competitor or category-leading campaign / repositioning / partnership
-3) Consumer/cultural trend with clear brand implications
-4) Regulation or policy change affecting marketing
+Given the following marketing/brand intelligence summary, extract the single most actionable development that fits one of these categories:
+
+1) platform_change (major ad platform / privacy / measurement change)
+2) competitor_campaign (competitor or category-leading campaign / repositioning / partnership)
+3) consumer_trend (consumer/cultural trend with clear brand implications)
+4) regulation (regulation or policy change affecting marketing)
 
 Intel summary:
 {raw_intel}
@@ -176,7 +266,14 @@ Return only developments that are clearly supported by the intel summary and hav
 
 If there are no clearly relevant developments, return an empty JSON object: {{}}
 
-Otherwise return ONLY a valid JSON object in exactly this format, with no extra text or markdown. Include 1..N items in the array for "{current_year}":
+Otherwise return ONLY a valid JSON object in exactly this format (no extra text, no markdown). Include EXACTLY 1 item in the array for "{current_year}".
+
+Constraints:
+- Keep every string factual and defensible based on the intel summary.
+- Make recommended actions concrete (what, who, when).
+- Use measurement triangulation language where relevant: attribution vs incrementality tests vs MMM (marketing mix modeling).
+
+Schema (keep existing fields for backwards compatibility; additional fields are allowed and encouraged):
 {{
   "{current_year}": [
     {{
@@ -190,6 +287,34 @@ Otherwise return ONLY a valid JSON object in exactly this format, with no extra 
         "<bullet-like action 2>",
         "<bullet-like action 3>"
       ],
+      "who_it_impacts": [
+        "<e.g. Performance Marketing>",
+        "<e.g. Brand/Comms>",
+        "<e.g. Analytics/BI>",
+        "<e.g. Legal/Compliance>"
+      ],
+      "kpis_to_watch": [
+        "<KPI 1>",
+        "<KPI 2>",
+        "<KPI 3>"
+      ],
+      "expected_directional_impact": {{
+        "awareness": "<up/down/unclear + 5-12 words why>",
+        "conversion": "<up/down/unclear + 5-12 words why>",
+        "cac_or_cpa": "<up/down/unclear + 5-12 words why>",
+        "measurement_confidence": "<up/down/unclear + 5-12 words why>"
+      }},
+      "next_7_days": [
+        "<smallest next steps that can start this week>"
+      ],
+      "next_30_days": [
+        "<steps that require planning/coordination>"
+      ],
+      "assumptions_and_risks": [
+        "<assumption/risk + mitigation>"
+      ],
+      "confidence": "<low|medium|high>",
+      "role_primary": "{role_label}",
       "source": "<URL of the most relevant source article>",
       "date": "{current_date}"
     }}
@@ -217,7 +342,20 @@ output = re.sub(r"^```[a-z]*\n?", "", output).rstrip("`").strip()
 # Validate and pretty-print JSON
 print("\n--- Result ---")
 try:
-    parsed = json.loads(output)
+    def _try_parse_json(s: str) -> dict:
+        return json.loads(s)
+
+    try:
+        parsed = _try_parse_json(output)
+    except json.JSONDecodeError:
+        # Recovery: if the model output was cut off, trim to the last complete JSON object.
+        start = output.find("{")
+        end = output.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            trimmed = output[start : end + 1].strip()
+            parsed = _try_parse_json(trimmed)
+        else:
+            raise
 
     # Write output JSON into the repo data files so CI doesn't need to scrape stdout.
     repo_root = Path(__file__).resolve().parents[1]

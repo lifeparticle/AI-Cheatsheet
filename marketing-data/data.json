@@ -1,18 +1,52 @@
 {
-  "2026": [
-    {
-      "event": "iOS ATT Privacy Changes Continue Degrading Ad Measurement",
-      "category": "platform_change",
-      "description": "Apple's App Tracking Transparency framework, now deeply entrenched across the iOS ecosystem, continues to erode signal fidelity for ad attribution across Meta, Google, and programmatic channels. Modeled conversions now represent a growing share of reported results, and cross-platform measurement gaps are widening as deterministic matching declines. This compounds with Chrome's Privacy Sandbox rollout to create a structurally different measurement landscape than even 18 months ago.",
-      "analyst_take": "Audit what percentage of your reported conversions are modeled vs. observed across Meta, Google, and DSPs — flag any channel where modeled share exceeds 40% as high-uncertainty. Prioritize incrementality testing (geo-lift, holdout studies) over last-click or even multi-touch attribution to validate true channel contribution.",
-      "brand_take": "Brands over-indexed on retargeting-driven performance media face rising CPAs and declining ROAS transparency; this is the moment to rebalance toward upper-funnel brand investment that builds first-party data assets and direct consumer relationships, reducing dependence on platform-mediated signals.",
-      "recommended_actions": [
-        "Implement or expand server-side tracking (Conversions API for Meta, Enhanced Conversions for Google) to recover lost signal and improve match rates",
-        "Launch a quarterly incrementality testing cadence (geo-lift or calibrated holdout) for your top 3 media channels to validate platform-reported ROAS",
-        "Accelerate first-party data collection (loyalty programs, gated content, zero-party preference centers) and build audience segments that reduce reliance on third-party cookie/IDFA targeting"
-      ],
-      "source": "https://adlibrary.com/posts/ios-14-att",
-      "date": "2026-06-16"
-    }
-  ]
+	"2026": [
+		{
+			"event": "Meta AI Privacy Policy Reshapes Ad Targeting in 2026",
+			"category": "platform_change",
+			"description": "Meta has updated its AI-driven privacy policy in 2026, significantly altering how advertisers can target users across Facebook and Instagram. Combined with ongoing iOS privacy changes that continue to degrade deterministic signal quality, advertisers face a compounding loss of addressable audience precision and attribution accuracy. This represents a structural shift in how performance marketing is measured and optimized on the largest social ad platform.",
+			"analyst_take": "Marketing Analysts should expect widening gaps between platform-reported conversions and actual incremental lift. Prioritize triangulating Meta-reported ROAS against incrementality holdout tests and MMM outputs to identify true channel contribution before budget reallocation decisions are finalized for H2.",
+			"brand_take": "Brands heavily reliant on Meta's lookalike and interest-based targeting will see creative quality and first-party data strategy become the primary levers for performance. Messaging that drives direct, measurable engagement (email capture, loyalty sign-up) should be prioritized to offset signal loss.",
+			"recommended_actions": [
+				"Audit current Meta campaign structure to identify segments most affected by reduced targeting precision; flag any audiences relying solely on third-party or probabilistic signals.",
+				"Design and launch a geo-based incrementality test on Meta within the next 30 days to establish a baseline conversion lift independent of platform-reported attribution.",
+				"Accelerate first-party data enrichment by integrating CRM and loyalty data into Meta's Conversions API to maintain match rates above 70%."
+			],
+			"who_it_impacts": [
+				"Performance Marketing",
+				"Analytics/BI",
+				"Brand/Comms",
+				"Legal/Compliance"
+			],
+			"kpis_to_watch": [
+				"Meta Conversions API event match quality score",
+				"Incrementality-adjusted ROAS vs. platform-reported ROAS",
+				"Cost per acquired first-party data record (email/loyalty)"
+			],
+			"expected_directional_impact": {
+				"awareness": "unclear — reach may hold but frequency capping less precise",
+				"conversion": "down — reduced targeting precision lowers attributed conversion rates",
+				"cac_or_cpa": "up — signal loss forces broader targeting increasing acquisition cost",
+				"measurement_confidence": "down — platform attribution diverges further from true incrementality"
+			},
+			"next_7_days": [
+				"Pull last-90-day Meta event match quality reports from Events Manager and flag any scores below 6.0.",
+				"Schedule a cross-functional sync with Performance Marketing and Analytics to align on incrementality test design parameters.",
+				"Review current Conversions API integration for data freshness and completeness gaps."
+			],
+			"next_30_days": [
+				"Launch a geo-holdout incrementality test across top 2-3 Meta campaigns by spend to validate reported ROAS.",
+				"Incorporate Meta channel data into existing MMM refresh cycle to update channel contribution estimates for H2 planning.",
+				"Partner with CRM/Loyalty team to build a first-party audience upload pipeline that refreshes weekly into Meta."
+			],
+			"assumptions_and_risks": [
+				"Assumption: Meta's Conversions API will remain the primary server-side integration method — risk mitigated by monitoring Meta's developer changelog weekly.",
+				"Risk: Incrementality test results may show significantly lower true ROAS than reported, triggering budget reallocation pressure — mitigate by socializing test framework with leadership before results land.",
+				"Assumption: iOS privacy degradation is cumulative and will not reverse — monitor any Apple announcements at WWDC or policy updates that could alter signal availability."
+			],
+			"confidence": "medium",
+			"role_primary": "Marketing Analyst",
+			"source": "https://www.auditsocials.com/blog/meta-ai-privacy-policy-ad-targeting-changes-2026",
+			"date": "2026-06-16"
+		}
+	]
 }

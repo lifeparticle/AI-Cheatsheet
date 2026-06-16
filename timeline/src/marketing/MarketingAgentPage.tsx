@@ -16,6 +16,78 @@ function categoryLabel(category: string): string {
   }
 }
 
+function titleCase(value: string): string {
+  return value
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b([a-z])/g, (m) => m.toUpperCase())
+    .trim()
+}
+
+function ConfidenceBadge({ confidence }: Readonly<{ confidence?: string }>) {
+  if (!confidence) return null
+  const key = confidence.toLowerCase()
+  let tone = 'border-on-surface/20 text-on-surface-variant'
+  if (key === 'high') tone = 'border-primary/25 text-primary-fixed'
+  if (key === 'low') tone = 'border-tertiary/25 text-tertiary-fixed'
+  return (
+    <span
+      className={`inline-block py-1 px-3 border ${tone} text-[10px] font-body uppercase tracking-widest`}
+      title="Model confidence (self-reported)"
+    >
+      {key}
+    </span>
+  )
+}
+
+function PillList({
+  label,
+  items,
+}: Readonly<{
+  label: string
+  items?: string[]
+}>) {
+  if (!items?.length) return null
+  return (
+    <section className="mt-6">
+      <h3 className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-2">
+        {label}
+      </h3>
+      <div className="flex flex-wrap gap-2">
+        {items.map((it) => (
+          <span
+            key={`${label}|${it}`}
+            className="inline-flex items-center px-3 py-1 border border-on-surface/10 bg-surface/40 text-on-surface-variant text-[11px] font-body tracking-wide"
+          >
+            {it}
+          </span>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Bullets({
+  label,
+  items,
+}: Readonly<{
+  label: string
+  items?: string[]
+}>) {
+  if (!items?.length) return null
+  return (
+    <section className="mt-6">
+      <h3 className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-2">
+        {label}
+      </h3>
+      <ul className="list-disc pl-5 space-y-1 text-on-surface-variant font-body text-[12px] leading-loose">
+        {items.map((a) => (
+          <li key={`${label}|${a}`}>{a}</li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 export function MarketingAgentPage() {
   const {
     data,
@@ -95,6 +167,12 @@ export function MarketingAgentPage() {
                     <span className="inline-block py-1 px-3 border border-primary/20 text-primary-fixed text-[10px] font-body uppercase tracking-widest">
                       {categoryLabel(item.category)}
                     </span>
+                    {item.role_primary ? (
+                      <span className="inline-block py-1 px-3 border border-on-surface/15 text-on-surface-variant text-[10px] font-body uppercase tracking-widest">
+                        {titleCase(item.role_primary)}
+                      </span>
+                    ) : null}
+                    <ConfidenceBadge confidence={item.confidence} />
                     <span className="text-on-surface-variant/70 text-[10px] font-body uppercase tracking-[0.35em]">
                       {item.date}
                     </span>
@@ -122,6 +200,56 @@ export function MarketingAgentPage() {
                 {item.description}
               </p>
 
+              {item.expected_directional_impact ? (
+                <section className="mt-6">
+                  <h3 className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-2">
+                    Expected_impact
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {item.expected_directional_impact.awareness ? (
+                      <div className="border border-on-surface/10 bg-surface/40 p-3">
+                        <p className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-1">
+                          Awareness
+                        </p>
+                        <p className="text-on-surface-variant font-body text-[12px] leading-loose">
+                          {item.expected_directional_impact.awareness}
+                        </p>
+                      </div>
+                    ) : null}
+                    {item.expected_directional_impact.conversion ? (
+                      <div className="border border-on-surface/10 bg-surface/40 p-3">
+                        <p className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-1">
+                          Conversion
+                        </p>
+                        <p className="text-on-surface-variant font-body text-[12px] leading-loose">
+                          {item.expected_directional_impact.conversion}
+                        </p>
+                      </div>
+                    ) : null}
+                    {item.expected_directional_impact.cac_or_cpa ? (
+                      <div className="border border-on-surface/10 bg-surface/40 p-3">
+                        <p className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-1">
+                          CAC/CPA
+                        </p>
+                        <p className="text-on-surface-variant font-body text-[12px] leading-loose">
+                          {item.expected_directional_impact.cac_or_cpa}
+                        </p>
+                      </div>
+                    ) : null}
+                    {item.expected_directional_impact.measurement_confidence ? (
+                      <div className="border border-on-surface/10 bg-surface/40 p-3">
+                        <p className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-1">
+                          Measurement_confidence
+                        </p>
+                        <p className="text-on-surface-variant font-body text-[12px] leading-loose">
+                          {item.expected_directional_impact.measurement_confidence}
+                        </p>
+                      </div>
+                    ) : null}
+                  </div>
+                </section>
+              ) : null}
+
               <div className="mt-6 grid md:grid-cols-2 gap-6">
                 <section>
                   <h3 className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-2">
@@ -143,17 +271,14 @@ export function MarketingAgentPage() {
               </div>
 
               {item.recommended_actions?.length ? (
-                <section className="mt-6">
-                  <h3 className="text-[10px] uppercase font-body tracking-[0.35em] text-on-surface-variant/60 mb-2">
-                    Recommended_actions
-                  </h3>
-                  <ul className="list-disc pl-5 space-y-1 text-on-surface-variant font-body text-[12px] leading-loose">
-                    {item.recommended_actions.map((a) => (
-                      <li key={a}>{a}</li>
-                    ))}
-                  </ul>
-                </section>
+                <Bullets label="Recommended_actions" items={item.recommended_actions} />
               ) : null}
+
+              <PillList label="Who_it_impacts" items={item.who_it_impacts} />
+              <PillList label="Kpis_to_watch" items={item.kpis_to_watch} />
+              <Bullets label="Next_7_days" items={item.next_7_days} />
+              <Bullets label="Next_30_days" items={item.next_30_days} />
+              <Bullets label="Assumptions_and_risks" items={item.assumptions_and_risks} />
             </article>
           ))}
         </div>

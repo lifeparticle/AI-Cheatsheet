@@ -13,6 +13,19 @@ export type MarketingItem = {
   analyst_take: string
   brand_take: string
   recommended_actions: string[]
+  who_it_impacts?: string[]
+  kpis_to_watch?: string[]
+  expected_directional_impact?: {
+    awareness?: string
+    conversion?: string
+    cac_or_cpa?: string
+    measurement_confidence?: string
+  }
+  next_7_days?: string[]
+  next_30_days?: string[]
+  assumptions_and_risks?: string[]
+  confidence?: string
+  role_primary?: string
   source: string
   date: string
 }
@@ -29,6 +42,20 @@ function isMarketingData(value: unknown): value is MarketingData {
   const isItem = (item: unknown): item is MarketingItem => {
     if (!item || typeof item !== 'object') return false
     const it = item as Record<string, unknown>
+    const optionalStringArray = (v: unknown): boolean =>
+      v === undefined || (Array.isArray(v) && v.every((a) => typeof a === 'string'))
+    const optionalString = (v: unknown): boolean => v === undefined || typeof v === 'string'
+    const optionalImpact = (v: unknown): boolean => {
+      if (v === undefined) return true
+      if (!v || typeof v !== 'object') return false
+      const obj = v as Record<string, unknown>
+      return (
+        optionalString(obj.awareness) &&
+        optionalString(obj.conversion) &&
+        optionalString(obj.cac_or_cpa) &&
+        optionalString(obj.measurement_confidence)
+      )
+    }
     return (
       typeof it.event === 'string' &&
       typeof it.category === 'string' &&
@@ -37,6 +64,14 @@ function isMarketingData(value: unknown): value is MarketingData {
       typeof it.brand_take === 'string' &&
       Array.isArray(it.recommended_actions) &&
       it.recommended_actions.every((a) => typeof a === 'string') &&
+      optionalStringArray(it.who_it_impacts) &&
+      optionalStringArray(it.kpis_to_watch) &&
+      optionalImpact(it.expected_directional_impact) &&
+      optionalStringArray(it.next_7_days) &&
+      optionalStringArray(it.next_30_days) &&
+      optionalStringArray(it.assumptions_and_risks) &&
+      optionalString(it.confidence) &&
+      optionalString(it.role_primary) &&
       typeof it.source === 'string' &&
       typeof it.date === 'string'
     )

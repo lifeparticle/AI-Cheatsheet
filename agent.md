@@ -1,13 +1,38 @@
+# Agents
+
 An agent is a program that can perceive its environment, make decisions, and take actions to achieve a goal — on its own, without you manually doing each step.
 
 Tools are how an agent reaches out and does things in the real world. Without tools, an agent is just thinking — it can reason and generate text, but it's trapped inside its own knowledge. Tools give it hands.
 When the agent calls a tool, it's essentially saying, "I need something I can't figure out on my own — let me go get it." The tool runs, returns data, and the agent uses that data to continue working toward its goal.
 
-Let's talk about a news agent.
+## News agent (AI timeline)
 
-1. **Trigger** — GitHub Actions schedules the workflow to run automatically (in this case it's set up for manual runs). No human has to remember to kick it off — the system wakes itself up.
-2. **Collection** — Claude uses the web search tool to go out and find today's AI news. This is the "agentic" part where the model decides what to search for and reads the results.
-3. **Filtering** — Claude reads the raw news and picks the single most notable event from three specific categories. This is still AI-driven but heavily constrained by the prompt — it's making a judgment call but within tight rules.
-4. **Summarising into a specific format** — Claude outputs a structured JSON object with fixed fields (event, description, source, date). The code then strips any formatting noise and validates that it parses correctly.
-5. **Deterministic delivery via GitHub Action** — No AI involved here at all. It's pure automation: run the script, check if the file changed, commit to a new branch, and open a PR. You stay in the loop by reviewing the PR before anything merges.
-The clean insight here is that only steps 1 and 2 involve AI judgment — everything else is just reliable, predictable code doing mechanical work. That's actually good agent design: use AI where you need reasoning, use deterministic code everywhere else.
+This repo includes a timeline news agent at `timeline-agent/main.py`. It follows this pattern:
+
+1. **Trigger** — GitHub Actions (manual by default) runs `/.github/workflows/python-app.yml`.
+2. **Collection** — Claude uses web search to find today’s AI news.
+3. **Filtering** — Claude selects a single most notable event across categories like new terms, major releases, or shutdowns.
+4. **Structured output** — It returns strict JSON with fields like `event`, `description`, `source`, and `date`.
+5. **Deterministic delivery** — The script validates/merges/de-dupes and writes data to:
+   - `timeline-data/data.json`
+   - `timeline/public/data.json`
+
+The clean insight here is that AI judgment is used only for collection + selection; everything else is deterministic automation.
+
+
+
+## Marketing agent (Marketing Analyst / Brand Manager)
+
+This repo also includes a marketing/brand intelligence agent at `marketing-agent/main.py`. It follows the same pattern as the timeline news agent:
+
+1. **Trigger** — GitHub Actions (manual by default) runs `/.github/workflows/update-marketing-data.yml`.
+2. **Collection** — Claude uses web search to find the most impactful marketing/brand development for today.
+3. **Filtering** — Claude selects a single best development across categories like platform/measurement changes, competitor campaigns, consumer trends, or regulation.
+4. **Structured output** — It returns strict JSON with fields designed for both:
+   - **Marketing Analyst**: `analyst_take` (what to measure/watch; reporting/budget implications)
+   - **Brand Manager**: `brand_take` (positioning/messaging/creative implications)
+5. **Deterministic delivery** — The script validates/merges/de-dupes and writes data to:
+   - `marketing-data/data.json`
+   - `timeline/public/marketing-data.json`
+
+As with the news agent, AI judgment is used only for collection + selection; everything else is deterministic automation.

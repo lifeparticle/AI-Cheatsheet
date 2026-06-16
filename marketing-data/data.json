@@ -1,0 +1,18 @@
+{
+  "2026": [
+    {
+      "event": "iOS ATT Privacy Changes Continue Degrading Ad Measurement",
+      "category": "platform_change",
+      "description": "Apple's App Tracking Transparency framework, now deeply entrenched across the iOS ecosystem, continues to erode signal fidelity for ad attribution across Meta, Google, and programmatic channels. Modeled conversions now represent a growing share of reported results, and cross-platform measurement gaps are widening as deterministic matching declines. This compounds with Chrome's Privacy Sandbox rollout to create a structurally different measurement landscape than even 18 months ago.",
+      "analyst_take": "Audit what percentage of your reported conversions are modeled vs. observed across Meta, Google, and DSPs — flag any channel where modeled share exceeds 40% as high-uncertainty. Prioritize incrementality testing (geo-lift, holdout studies) over last-click or even multi-touch attribution to validate true channel contribution.",
+      "brand_take": "Brands over-indexed on retargeting-driven performance media face rising CPAs and declining ROAS transparency; this is the moment to rebalance toward upper-funnel brand investment that builds first-party data assets and direct consumer relationships, reducing dependence on platform-mediated signals.",
+      "recommended_actions": [
+        "Implement or expand server-side tracking (Conversions API for Meta, Enhanced Conversions for Google) to recover lost signal and improve match rates",
+        "Launch a quarterly incrementality testing cadence (geo-lift or calibrated holdout) for your top 3 media channels to validate platform-reported ROAS",
+        "Accelerate first-party data collection (loyalty programs, gated content, zero-party preference centers) and build audience segments that reduce reliance on third-party cookie/IDFA targeting"
+      ],
+      "source": "https://adlibrary.com/posts/ios-14-att",
+      "date": "2026-06-16"
+    }
+  ]
+}

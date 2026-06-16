@@ -159,7 +159,7 @@ filter_response = create_message_with_retries(
     messages=[
         {
             "role": "user",
-            "content": f"""Given the following marketing/brand intelligence summary, extract the single most actionable development that fits one of these categories:
+            "content": f"""Given the following marketing/brand intelligence summary, extract as many actionable developments as you can that fit one of these categories:
 
 1) Major ad platform / privacy / measurement change
 2) Competitor or category-leading campaign / repositioning / partnership
@@ -172,9 +172,11 @@ Intel summary:
 Available source URLs (use the most relevant one exactly as written):
 {sources_section}
 
-If there is no clearly relevant development, return an empty JSON object: {{}}
+Return only developments that are clearly supported by the intel summary and have a plausible matching source URL.
 
-Otherwise return ONLY a valid JSON object in exactly this format, with no extra text or markdown:
+If there are no clearly relevant developments, return an empty JSON object: {{}}
+
+Otherwise return ONLY a valid JSON object in exactly this format, with no extra text or markdown. Include 1..N items in the array for "{current_year}":
 {{
   "{current_year}": [
     {{

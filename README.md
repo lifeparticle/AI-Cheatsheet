@@ -151,14 +151,15 @@ Agent interoperability and communication standards.
 | [AnythingLLM](https://anythingllm.com)               |
 | [Recall AI](https://app.getrecall.ai)                |
 | [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
-| [OpenClaw](https://openclaw.ai/)                     |
-| [Browserbase](https://www.browserbase.com/)          |
+| [OpenClaw](https://openclaw.ai)                      |
+| [Browserbase](https://www.browserbase.com)           |
 | [Magika](https://github.com/google/magika)           |
+| [notebookLM](https://notebooklm.google)              |
 
 ## Memory
 
-| Resource                                        |
-| ----------------------------------------------- |
+| Resource                                                 |
+| -------------------------------------------------------- |
 | [mempalace](https://github.com/milla-jovovich/mempalace) |
 
 ## Others

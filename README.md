@@ -155,6 +155,9 @@ Agent interoperability and communication standards.
 | [Browserbase](https://www.browserbase.com)           |
 | [Magika](https://github.com/google/magika)           |
 | [notebookLM](https://notebooklm.google)              |
+| [Wispr Flow](https://wisprflow.ai)                   |
+| [Granola](https://www.granola.ai)                    |
+| [Gamma](https://gamma.app/)                          |
 
 ## Memory
 

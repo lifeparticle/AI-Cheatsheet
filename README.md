@@ -197,3 +197,7 @@ Agent interoperability and communication standards.
 - Inverted File (IVF)
 - Approximate Nearest Neighbor (ANN)
 - Product Quantization (PQ)
+
+## AI Skills
+
+- https://www.aihero.dev/skills-teach

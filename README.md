@@ -159,6 +159,8 @@ Agent interoperability and communication standards.
 | [Granola](https://www.granola.ai)                    |
 | [Gamma](https://gamma.app/)                          |
 
+- https://github.com/debpalash/VoiceStudio
+
 ## Memory
 
 | Resource                                                 |

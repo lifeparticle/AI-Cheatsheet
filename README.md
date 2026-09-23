@@ -205,3 +205,4 @@ Agent interoperability and communication standards.
 - https://www.aihero.dev/skills-teach
 - https://github.com/twostraws/Swift-Agent-Skills
 - https://github.com/pbakaus/impeccable
+- https://github.com/mattpocock/skills

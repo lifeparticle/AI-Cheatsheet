@@ -112,6 +112,10 @@ Agent interoperability and communication standards.
 | Agora Protocol               | Decentralized agent communication protocol                     | [Site](https://agoraprotocol.org/)                                                            |
 | LMOS Protocol                | Eclipse LMOS agent protocol                                    | [Docs](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)                             |
 
+## Standard
+
+1. [WebMCP](https://developer.chrome.com/docs/ai/webmcp)
+
 ## Agents
 
 ### Guides

@@ -75,19 +75,17 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 
 ## Certifications
 
-
-
 | Certification                                                                                                                                              | Provider  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | [Claude Certified Associate – Foundations](https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification)                   | Anthropic |
 | [AWS Certified AI Business Strategist](https://aws.amazon.com/certification/certified-ai-business-strategist/)                                             | AWS       |
 | [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)                                                           | AWS       |
 | [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification)                   | Anthropic |
-| [AWS Certified Machine Learning Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)                | AWS       |
+| [AWS Certified Machine Learning Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)                 | AWS       |
 | [Azure AI Apps and Agents Developer Associate](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/) | Microsoft |
 | [Claude Certified Architect – Foundations](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)                   | Anthropic |
 | [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/claude-certified-architect-professional-certification)                 | Anthropic |
-| [AWS Certified Generative AI Developer – Professional](https://aws.amazon.com/certification/certified-generative-ai-developer-professional/)              | AWS       |
+| [AWS Certified Generative AI Developer – Professional](https://aws.amazon.com/certification/certified-generative-ai-developer-professional/)               | AWS       |
 | [NVIDIA Generative AI LLMs (NCP-GENL)](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/)                                   | NVIDIA    |
 
 ## Books
@@ -120,15 +118,15 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 
 Agent interoperability and communication standards.
 
-| Protocol                     | Description                                                    | Link                                                                                          |
-| ---------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Agent2Agent (A2A)            | Google's protocol for agent interoperability                   | [Blog](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)         |
-| Agent Payments Protocol (AP2)| Google's protocol for agent-led payments across platforms     | [Blog](https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol)
-| Model Context Protocol (MCP) | Open protocol for model-tool context (introduced by Anthropic) | [Docs](https://modelcontextprotocol.io/docs/getting-started/intro)                            |
-| Agent Network Protocol (ANP) | Open protocol for agent-to-agent networking                    | [Site](https://www.agent-network-protocol.com/)                                               |
-| AG-UI Protocol               | Agent–User interaction protocol                                | [Docs](https://docs.ag-ui.com/introduction#the-agent%E2%80%93user-interaction-ag-ui-protocol) |
-| Agora Protocol               | Decentralized agent communication protocol                     | [Site](https://agoraprotocol.org/)                                                            |
-| LMOS Protocol                | Eclipse LMOS agent protocol                                    | [Docs](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)                             |
+| Protocol                      | Description                                                    | Link                                                                                                          |
+| ----------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Agent2Agent (A2A)             | Google's protocol for agent interoperability                   | [Blog](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)                         |
+| Agent Payments Protocol (AP2) | Google's protocol for agent-led payments across platforms      | [Blog](https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol) |
+| Model Context Protocol (MCP)  | Open protocol for model-tool context (introduced by Anthropic) | [Docs](https://modelcontextprotocol.io/docs/getting-started/intro)                                            |
+| Agent Network Protocol (ANP)  | Open protocol for agent-to-agent networking                    | [Site](https://www.agent-network-protocol.com/)                                                               |
+| AG-UI Protocol                | Agent–User interaction protocol                                | [Docs](https://docs.ag-ui.com/introduction#the-agent%E2%80%93user-interaction-ag-ui-protocol)                 |
+| Agora Protocol                | Decentralized agent communication protocol                     | [Site](https://agoraprotocol.org/)                                                                            |
+| LMOS Protocol                 | Eclipse LMOS agent protocol                                    | [Docs](https://eclipse.dev/lmos/docs/lmos_protocol/introduction/)                                             |
 
 ## Standard
 
@@ -228,3 +226,8 @@ Agent interoperability and communication standards.
 - https://github.com/twostraws/Swift-Agent-Skills
 - https://github.com/pbakaus/impeccable
 - https://github.com/mattpocock/skills
+
+## My Projects
+
+1. [Timeline Agent](https://timeline-agent.netlify.app)
+2. [Skill Wizard](https://skill-wizard.netlify.app/)

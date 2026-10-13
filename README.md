@@ -79,13 +79,14 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 
 | Certification                                                                                                                                              | Provider  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [Claude Certified Associate – Foundations](https://www.credly.com/org/anthropic/badge/claude-certified-associate-foundations)                             | Anthropic |
+| [Claude Certified Associate – Foundations](https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification)                   | Anthropic |
 | [AWS Certified AI Business Strategist](https://aws.amazon.com/certification/certified-ai-business-strategist/)                                             | AWS       |
 | [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)                                                           | AWS       |
-| [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/)                                                                      | Anthropic |
+| [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification)                   | Anthropic |
 | [AWS Certified Machine Learning Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)                | AWS       |
 | [Azure AI Apps and Agents Developer Associate](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/) | Microsoft |
-| [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/)                                                                     | Anthropic |
+| [Claude Certified Architect – Foundations](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)                   | Anthropic |
+| [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/claude-certified-architect-professional-certification)                 | Anthropic |
 | [AWS Certified Generative AI Developer – Professional](https://aws.amazon.com/certification/certified-generative-ai-developer-professional/)              | AWS       |
 | [NVIDIA Generative AI LLMs (NCP-GENL)](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/)                                   | NVIDIA    |
 

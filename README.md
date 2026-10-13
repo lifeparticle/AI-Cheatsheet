@@ -11,6 +11,7 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 - [Analysis](#analysis)
 - [Gateway](#gateway)
 - [Courses](#courses)
+- [Certifications](#certifications)
 - [Books](#books)
 - [Blog](#blog)
 - [Papers](#papers)
@@ -67,11 +68,26 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 | --------------------------------------------------------------------------------------------------- | --------------- |
 | [Anthropic Courses](https://anthropic.skilljar.com/)                                                | Anthropic       |
 | [AI Learning Path](https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence) | IBM SkillsBuild |
-| [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)    | AWS             |
 | [Training for AI Engineers](https://learn.microsoft.com/en-us/training/career-paths/ai-engineer)    | Microsoft       |
 | [The AI Engineer Path](https://scrimba.com/the-ai-engineer-path-c02v)                               | Scrimba         |
 | [AI & ML Catalog](https://www.databricks.com/training/catalog?search=ai&costs=free)                 | Databricks      |
 | [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)        | Google          |
+
+## Certifications
+
+
+
+| Certification                                                                                                                                              | Provider  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| [Claude Certified Associate – Foundations](https://www.credly.com/org/anthropic/badge/claude-certified-associate-foundations)                             | Anthropic |
+| [AWS Certified AI Business Strategist](https://aws.amazon.com/certification/certified-ai-business-strategist/)                                             | AWS       |
+| [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/)                                                           | AWS       |
+| [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/)                                                                      | Anthropic |
+| [AWS Certified Machine Learning Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)                | AWS       |
+| [Azure AI Apps and Agents Developer Associate](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/) | Microsoft |
+| [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/)                                                                     | Anthropic |
+| [AWS Certified Generative AI Developer – Professional](https://aws.amazon.com/certification/certified-generative-ai-developer-professional/)              | AWS       |
+| [NVIDIA Generative AI LLMs (NCP-GENL)](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/)                                   | NVIDIA    |
 
 ## Books
 

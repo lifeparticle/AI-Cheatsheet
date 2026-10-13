@@ -106,6 +106,7 @@ Agent interoperability and communication standards.
 | Protocol                     | Description                                                    | Link                                                                                          |
 | ---------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | Agent2Agent (A2A)            | Google's protocol for agent interoperability                   | [Blog](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)         |
+| Agent Payments Protocol (AP2)| Google's protocol for agent-led payments across platforms     | [Blog](https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol)
 | Model Context Protocol (MCP) | Open protocol for model-tool context (introduced by Anthropic) | [Docs](https://modelcontextprotocol.io/docs/getting-started/intro)                            |
 | Agent Network Protocol (ANP) | Open protocol for agent-to-agent networking                    | [Site](https://www.agent-network-protocol.com/)                                               |
 | AG-UI Protocol               | Agent–User interaction protocol                                | [Docs](https://docs.ag-ui.com/introduction#the-agent%E2%80%93user-interaction-ag-ui-protocol) |

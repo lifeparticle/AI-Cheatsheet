@@ -6,4 +6,8 @@
 6. Sycophancy — When a model agrees with the user rather than giving an honest answer
 7. Embedding — A numerical representation of text used to measure meaning and similarity
 8. Hallucination — When a model confidently produces false or made-up information
+9. Context poisoning -
+10. Context distraction -
+11. Context confusion -
+12. Context clash - 
 

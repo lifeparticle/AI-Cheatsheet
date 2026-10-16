@@ -36,6 +36,11 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 | [Mistral AI](https://mistral.ai)           |
 | [DeepSeek](https://www.deepseek.com)       |
 
+## Benchmark
+
+1. MMLU-Pro
+2. [SWE-bench](https://www.swebench.com/)
+
 ## Run Locally
 
 | Tool                                                   |

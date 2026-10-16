@@ -40,6 +40,7 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 
 1. MMLU-Pro
 2. [SWE-bench](https://www.swebench.com/)
+3. [Arena](https://arena.ai/leaderboard)
 
 ## Run Locally
 

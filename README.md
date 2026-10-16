@@ -232,6 +232,7 @@ Agent interoperability and communication standards.
 - https://github.com/twostraws/Swift-Agent-Skills
 - https://github.com/pbakaus/impeccable
 - https://github.com/mattpocock/skills
+- https://github.com/cursor/plugins/tree/main/pstack
 
 ## My Projects
 

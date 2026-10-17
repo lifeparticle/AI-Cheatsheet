@@ -6,25 +6,33 @@ A curated reference of tools, platforms, courses, papers, and protocols for work
 
 ## Table of Contents
 
-- [LLM Providers](#llm-providers)
-- [Run Locally](#run-locally)
-- [Analysis](#analysis)
-- [Gateway](#gateway)
-- [Courses](#courses)
-- [Certifications](#certifications)
-- [Books](#books)
-- [Blog](#blog)
-- [Papers](#papers)
-- [Protocols](#protocols)
-- [Agents](#agents)
-- [Tool Calling](#tool-calling)
-- [Tools](#tools)
-- [Memory](#memory)
-- [Others](#others)
-- [Tokens](#tokens)
-- [Document parsing](#document-parsing)
-- [Vector database](#vector-database)
-- [Vector search](#vector-search)
+ * [LLM Providers](#llm-providers)
+ * [Benchmark](#benchmark)
+ * [Run Locally](#run-locally)
+ * [Analysis](#analysis)
+ * [Gateway](#gateway)
+ * [Courses](#courses)
+ * [Certifications](#certifications)
+ * [Books](#books)
+ * [Blog](#blog)
+ * [Papers](#papers)
+ * [Protocols](#protocols)
+ * [Standard](#standard)
+ * [Agents](#agents)
+    + [Guides](#guides)
+    + [Platforms](#platforms)
+ * [Tool Calling](#tool-calling)
+ * [Tools](#tools)
+ * [Memory](#memory)
+ * [Others](#others)
+ * [Tokens](#tokens)
+ * [Document parsing](#document-parsing)
+ * [Vector database](#vector-database)
+ * [Vector search](#vector-search)
+ * [AI Skills](#ai-skills)
+ * [Video](#video)
+ * [Deploy](#deploy)
+ * [My Projects](#my-projects)
 
 ## LLM Providers
 
@@ -233,6 +241,10 @@ Agent interoperability and communication standards.
 - https://github.com/pbakaus/impeccable
 - https://github.com/mattpocock/skills
 - https://github.com/cursor/plugins/tree/main/pstack
+
+## Video
+
+1.[How to scale intent, quality, and artistry with Al | Katie Dill (Stripe)](https://www.youtube.com/watch?v=GLvFTMtw4Jk)
 
 ## Deploy
 

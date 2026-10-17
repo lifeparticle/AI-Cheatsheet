@@ -234,6 +234,10 @@ Agent interoperability and communication standards.
 - https://github.com/mattpocock/skills
 - https://github.com/cursor/plugins/tree/main/pstack
 
+## Deploy
+
+1. https://floot.com/en
+
 ## My Projects
 
 1. [Timeline Agent](https://timeline-agent.netlify.app)

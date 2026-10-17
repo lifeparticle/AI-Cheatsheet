@@ -175,25 +175,24 @@ Agent interoperability and communication standards.
 
 ## Tools
 
-| Tool                                                 |
-| ---------------------------------------------------- |
-| [Google Stitch](https://stitch.withgoogle.com)       |
-| [Agent Zero](https://github.com/agent0ai/agent-zero) |
-| [Remotion Prompts](https://www.remotion.dev/prompts) |
-| [Pencil](https://www.pencil.dev)                     |
-| [Quiver AI](https://quiver.ai)                       |
-| [AnythingLLM](https://anythingllm.com)               |
-| [Recall AI](https://app.getrecall.ai)                |
-| [AgenticSeek](https://github.com/Fosowl/agenticSeek) |
-| [OpenClaw](https://openclaw.ai)                      |
-| [Browserbase](https://www.browserbase.com)           |
-| [Magika](https://github.com/google/magika)           |
-| [notebookLM](https://notebooklm.google)              |
-| [Wispr Flow](https://wisprflow.ai)                   |
-| [Granola](https://www.granola.ai)                    |
-| [Gamma](https://gamma.app/)                          |
-
-- https://github.com/debpalash/VoiceStudio
+| Tool                                                    |
+| ------------------------------------------------------- |
+| [Google Stitch](https://stitch.withgoogle.com)          |
+| [Agent Zero](https://github.com/agent0ai/agent-zero)    |
+| [Remotion Prompts](https://www.remotion.dev/prompts)    |
+| [Pencil](https://www.pencil.dev)                        |
+| [Quiver AI](https://quiver.ai)                          |
+| [AnythingLLM](https://anythingllm.com)                  |
+| [Recall AI](https://app.getrecall.ai)                   |
+| [AgenticSeek](https://github.com/Fosowl/agenticSeek)    |
+| [OpenClaw](https://openclaw.ai)                         |
+| [Browserbase](https://www.browserbase.com)              |
+| [Magika](https://github.com/google/magika)              |
+| [notebookLM](https://notebooklm.google)                 |
+| [Wispr Flow](https://wisprflow.ai)                      |
+| [Granola](https://www.granola.ai)                       |
+| [Gamma](https://gamma.app/)                             |
+| [VoiceStudio](https://github.com/debpalash/VoiceStudio) |
 
 ## Memory
 
@@ -244,11 +243,11 @@ Agent interoperability and communication standards.
 
 ## Video
 
-1.[How to scale intent, quality, and artistry with Al | Katie Dill (Stripe)](https://www.youtube.com/watch?v=GLvFTMtw4Jk)
+1. [How to scale intent, quality, and artistry with Al | Katie Dill (Stripe)](https://www.youtube.com/watch?v=GLvFTMtw4Jk)
 
 ## Deploy
 
-1. https://floot.com/en
+1. [Floot](https://floot.com/en)
 
 ## My Projects
 

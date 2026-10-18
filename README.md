@@ -193,6 +193,7 @@ Agent interoperability and communication standards.
 | [Granola](https://www.granola.ai)                       |
 | [Gamma](https://gamma.app/)                             |
 | [VoiceStudio](https://github.com/debpalash/VoiceStudio) |
+| [openui](https://github.com/thesysdev/openui)           |
 
 ## Memory
 

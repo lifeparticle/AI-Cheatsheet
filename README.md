@@ -194,6 +194,7 @@ Agent interoperability and communication standards.
 | [Gamma](https://gamma.app/)                             |
 | [VoiceStudio](https://github.com/debpalash/VoiceStudio) |
 | [openui](https://github.com/thesysdev/openui)           |
+| [Figma Make](https://www.figma.com/make/)               |
 
 ## Memory
 

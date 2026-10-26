@@ -251,6 +251,10 @@ Agent interoperability and communication standards.
 
 1. [Floot](https://floot.com/en)
 
+## Others
+
+1. [mindcase](https://mindcase.co/)
+
 ## My Projects
 
 1. [Timeline Agent](https://timeline-agent.netlify.app)

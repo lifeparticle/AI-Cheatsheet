@@ -254,6 +254,7 @@ Agent interoperability and communication standards.
 ## Others
 
 1. [mindcase](https://mindcase.co/)
+2. [theresanaiforthat](https://theresanaiforthat.com/)
 
 ## My Projects
 

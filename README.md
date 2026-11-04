@@ -255,6 +255,7 @@ Agent interoperability and communication standards.
 
 1. [mindcase](https://mindcase.co/)
 2. [theresanaiforthat](https://theresanaiforthat.com/)
+3. https://github.com/lemomo-ai/lemo-opuscar
 
 ## My Projects
 

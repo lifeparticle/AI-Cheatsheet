@@ -242,6 +242,7 @@ Agent interoperability and communication standards.
 - https://github.com/pbakaus/impeccable
 - https://github.com/mattpocock/skills
 - https://github.com/cursor/plugins/tree/main/pstack
+- http://github.com/elayadesign/ai-design-skills
 
 ## Video
 
